@@ -1,21 +1,24 @@
-# Cloud watcher: runs even when your Mac is closed.
+# Cloud watcher: runs whether or not your Mac is on.
 #
 # Setup:
-#   1. Create a PRIVATE repo on GitHub and push this project to it.
-#   2. Settings > Secrets and variables > Actions > New repository secret:
-#        TELEGRAM_BOT_TOKEN   (from @BotFather)
-#        TELEGRAM_CHAT_ID     (the number in your local .env)
-#   3. Turn OFF the local Mac job so alerts do not arrive twice:
+#   1. Push to a PRIVATE GitHub repo.
+#   2. Settings > Secrets and variables > Actions:
+#        TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+#   3. Turn off the Mac job so alerts do not arrive twice:
 #        launchctl bootout gui/$(id -u)/com.pmintern.watcher
 #
-# Budget: every 30 min = 48 runs/day = ~1,440 runs/month. Each run bills as
-# 1 minute (GitHub rounds each job up), so ~1,440 of the 3,000 minutes that
-# GitHub Pro / Student Pack includes for private repos. Roughly half.
+# Budget: GitHub bills each job rounded UP to the nearest minute, so run
+# COUNT is what costs money, not run length. Polling hard only when postings
+# actually appear (US business hours) keeps this near 1,590 runs/month --
+# about 53% of the 3,000 minutes GitHub Pro / Student Pack includes.
+# A flat every-15-minutes schedule would be 2,880 runs, or 96%.
 name: PM internship watch
 
 on:
   schedule:
-    - cron: "0,30 * * * *"   # :00 and :30. GitHub queues cron under load.
+    - cron: "*/15 11-23 * * 1-5"   # every 15 min, Mon-Fri 7am-8pm ET (peak posting)
+    - cron: "0 0-10 * * *"         # hourly overnight, every day
+    - cron: "0 11-23 * * 0,6"      # hourly on weekends
   workflow_dispatch:
 
 concurrency:
@@ -25,21 +28,25 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 5      # a hung run must not silently eat the budget
+    timeout-minutes: 3     # a hung run must never eat the monthly budget
     steps:
       - uses: actions/checkout@v4
 
-      # No setup-python step on purpose: ubuntu-latest ships a recent python3
-      # and this project is standard-library only. Skipping it saves ~15s of
-      # billed time on every single run.
+      # No setup-python step: ubuntu-latest ships python3 and this project is
+      # standard-library only. Skipping it saves ~15s of billed time per run.
 
-      # jobs.db is the dedupe ledger. Without it every run re-alerts everything.
-      - name: Restore database
+      # jobs.db is the dedupe ledger -- without it every run re-alerts
+      # everything. .cache holds the ETag for the 11MB community feed, which
+      # turns a full download into a 304 and keeps runs under the 1-minute
+      # billing boundary.
+      - name: Restore state
         uses: actions/cache/restore@v4
         with:
-          path: jobs.db
-          key: pm-jobs-db-${{ github.run_id }}
-          restore-keys: pm-jobs-db-
+          path: |
+            jobs.db
+            .cache
+          key: pm-state-${{ github.run_id }}
+          restore-keys: pm-state-
 
       - name: Scan
         env:
@@ -47,9 +54,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 cli.py scan
 
-      - name: Save database
+      - name: Save state
         uses: actions/cache/save@v4
         if: always()
         with:
-          path: jobs.db
-          key: pm-jobs-db-${{ github.run_id }}
+          path: |
+            jobs.db
+            .cache
+          key: pm-state-${{ github.run_id }}

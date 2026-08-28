@@ -67,10 +67,15 @@ Stop it with `launchctl bootout gui/$(id -u)/com.pmintern.watcher`.
 GitHub repo and add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` as Actions
 secrets. `.github/workflows/watch.yml` then scans every 30 minutes.
 
-Budget: 48 runs/day is about 1,440 billed minutes a month, roughly half of the
-3,000 that GitHub Pro (free via the Student Developer Pack) includes for private
-repos. Going to every 15 minutes would roughly double that and risk running out
-mid-month, at which point scheduled runs stop silently.
+Schedule: every 15 minutes Mon-Fri 7am-8pm ET (when postings actually go up),
+hourly otherwise. GitHub bills each job rounded **up** to the nearest minute, so
+run *count* is the cost, not run length. This works out to ~1,590 runs/month,
+about **53%** of the 3,000 minutes GitHub Pro (free via the Student Developer
+Pack) includes for private repos. A flat every-15-minutes schedule would be
+2,880 runs (96%) and could run out mid-month, at which point scheduled runs
+stop silently.
+
+Check usage anytime at <https://github.com/settings/billing>.
 
 Run the cloud watcher **or** the Mac one, not both — they keep separate
 databases and would each alert you.
