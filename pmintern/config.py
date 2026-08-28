@@ -41,3 +41,18 @@ def get_bool(name: str, default: bool = False) -> bool:
     if not value:
         return default
     return value in ("1", "true", "yes", "on")
+
+
+def set_env_value(key: str, value: str, path: Path = ENV_PATH) -> None:
+    """Write KEY=value into .env, replacing the line if it already exists."""
+    lines = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
+    replaced = False
+    for i, line in enumerate(lines):
+        if line.strip().startswith(f"{key}="):
+            lines[i] = f"{key}={value}"
+            replaced = True
+            break
+    if not replaced:
+        lines.append(f"{key}={value}")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    os.environ[key] = value

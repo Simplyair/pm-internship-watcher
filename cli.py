@@ -244,6 +244,73 @@ def cmd_disable(args) -> None:
     COMPANIES_PATH.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
 
 
+def cmd_setup(args) -> None:
+    """Guided first-time setup: verify the token, find the chat id, save it."""
+    token = config.get("TELEGRAM_BOT_TOKEN")
+    if not token:
+        print("Step 1 is not done yet — your bot token is missing.\n")
+        print("  1. Open Telegram and message @BotFather  (https://t.me/BotFather)")
+        print("  2. Send:  /newbot   then pick a name and a username ending in 'bot'")
+        print("  3. BotFather replies with a long token like 123456789:AAE...")
+        print(f"  4. Paste it after TELEGRAM_BOT_TOKEN= in {config.ENV_PATH}")
+        print("\nThen run this again:  python3 cli.py setup")
+        sys.exit(1)
+
+    try:
+        bot = telegram.Telegram(token)
+        info = bot.me()
+    except FetchError:
+        sys.exit("That token was rejected by Telegram. Check for a typo or a missing\n"
+                 "character, or ask @BotFather for a new one with /token.")
+
+    username = info.get("username", "")
+    print(f"Token works — connected to @{username}\n")
+
+    existing = config.get("TELEGRAM_CHAT_ID")
+    if existing and not args.force:
+        print(f"Chat id already set ({existing}). Re-run with --force to change it.")
+    else:
+        print(f"Now open your bot and send it any message (just say hi):")
+        print(f"   https://t.me/{username}\n")
+        print("Waiting for it", end="", flush=True)
+        chat_id, who = _await_first_message(bot, seconds=args.wait)
+        print()
+        if not chat_id:
+            sys.exit(f"\nDid not see a message in {args.wait}s. Open https://t.me/{username}, "
+                     "send 'hi',\nthen run: python3 cli.py setup")
+        config.set_env_value("TELEGRAM_CHAT_ID", str(chat_id))
+        print(f"Got it — message from {who}. Saved chat id {chat_id} to .env\n")
+        bot.chat_id = str(chat_id)
+
+    bot.chat_id = config.get("TELEGRAM_CHAT_ID")
+    bot.send("<b>PM internship watcher is connected.</b>\n"
+             "New product management internships in the US and Canada will show up here.")
+    print("Sent a confirmation message — check Telegram.\n")
+    print("Setup is done. Next:")
+    print("   python3 cli.py scan     send yourself everything open right now")
+    print("   ./scripts/install-launchd.sh    keep it running every 15 minutes")
+
+
+def _await_first_message(bot, seconds: int = 180):
+    """Long-poll Telegram until someone messages the bot. Returns (chat_id, name)."""
+    deadline = time.time() + seconds
+    while time.time() < deadline:
+        try:
+            updates = bot.get_updates(timeout=15)
+        except FetchError:
+            time.sleep(2)
+            print(".", end="", flush=True)
+            continue
+        for update in updates:
+            msg = update.get("message") or {}
+            chat = msg.get("chat") or {}
+            if chat.get("id"):
+                name = chat.get("username") or chat.get("first_name") or chat.get("title") or "you"
+                return chat["id"], name
+        print(".", end="", flush=True)
+    return None, ""
+
+
 def cmd_chatid(args) -> None:
     bot = bot_from_env(require_chat=False)
     info = bot.me()
@@ -333,6 +400,12 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("disable", help="stop polling a company")
     p.add_argument("board")
     p.set_defaults(func=cmd_disable)
+
+    p = sub.add_parser("setup", help="guided first-time Telegram setup")
+    p.add_argument("--wait", type=int, default=180, metavar="SEC",
+                   help="how long to wait for your first message")
+    p.add_argument("--force", action="store_true", help="re-detect the chat id")
+    p.set_defaults(func=cmd_setup)
 
     sub.add_parser("chatid", help="find your Telegram chat id").set_defaults(func=cmd_chatid)
     sub.add_parser("test", help="send a test Telegram message").set_defaults(func=cmd_test)
