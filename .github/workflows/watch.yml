@@ -1,12 +1,21 @@
-# Cloud alternative to launchd: runs even when your Mac is closed.
-# Setup: push this repo to GitHub (private), then add two repository secrets
-# under Settings > Secrets and variables > Actions:
-#   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+# Cloud watcher: runs even when your Mac is closed.
+#
+# Setup:
+#   1. Create a PRIVATE repo on GitHub and push this project to it.
+#   2. Settings > Secrets and variables > Actions > New repository secret:
+#        TELEGRAM_BOT_TOKEN   (from @BotFather)
+#        TELEGRAM_CHAT_ID     (the number in your local .env)
+#   3. Turn OFF the local Mac job so alerts do not arrive twice:
+#        launchctl bootout gui/$(id -u)/com.pmintern.watcher
+#
+# Budget: every 30 min = 48 runs/day = ~1,440 runs/month. Each run bills as
+# 1 minute (GitHub rounds each job up), so ~1,440 of the 3,000 minutes that
+# GitHub Pro / Student Pack includes for private repos. Roughly half.
 name: PM internship watch
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # GitHub queues these; expect 15-30 min in practice
+    - cron: "0,30 * * * *"   # :00 and :30. GitHub queues cron under load.
   workflow_dispatch:
 
 concurrency:
@@ -16,16 +25,15 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 5      # a hung run must not silently eat the budget
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      # No setup-python step on purpose: ubuntu-latest ships a recent python3
+      # and this project is standard-library only. Skipping it saves ~15s of
+      # billed time on every single run.
 
-      # jobs.db holds the dedupe ledger, so it has to survive between runs.
+      # jobs.db is the dedupe ledger. Without it every run re-alerts everything.
       - name: Restore database
         uses: actions/cache/restore@v4
         with:

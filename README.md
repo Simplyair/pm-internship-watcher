@@ -63,10 +63,20 @@ you get an individual alert per new posting.
 Scans every 15 minutes in the background, starts again automatically on reboot.
 Stop it with `launchctl bootout gui/$(id -u)/com.pmintern.watcher`.
 
-**In the cloud** (scans even with your laptop closed): push this repo to a
-**private** GitHub repo and add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` as
-Actions secrets. `.github/workflows/watch.yml` then runs the scan on a schedule.
-GitHub queues cron jobs under load, so expect 15–30 minute intervals in practice.
+**In the cloud** (scans even with your laptop closed): push to a **private**
+GitHub repo and add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` as Actions
+secrets. `.github/workflows/watch.yml` then scans every 30 minutes.
+
+Budget: 48 runs/day is about 1,440 billed minutes a month, roughly half of the
+3,000 that GitHub Pro (free via the Student Developer Pack) includes for private
+repos. Going to every 15 minutes would roughly double that and risk running out
+mid-month, at which point scheduled runs stop silently.
+
+Run the cloud watcher **or** the Mac one, not both — they keep separate
+databases and would each alert you.
+
+GitHub also disables scheduled workflows after 60 days of repo inactivity, so
+push a commit occasionally or re-enable it in the Actions tab.
 
 **In a terminal** (for testing): `python3 cli.py watch`
 
