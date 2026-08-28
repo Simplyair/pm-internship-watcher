@@ -17,7 +17,7 @@ launchctl bootout "gui/$(id -u)/com.pmintern.watcher" 2>/dev/null || true
 launchctl bootstrap "gui/$(id -u)" "$TARGET"
 launchctl enable "gui/$(id -u)/com.pmintern.watcher"
 
-echo "installed. it will scan every 15 minutes."
+echo "installed. it will scan every 5 minutes."
 echo "  logs:      tail -f $DIR/logs/watcher.log"
 echo "  stop:      launchctl bootout gui/$(id -u)/com.pmintern.watcher"
 echo "  run now:   launchctl kickstart -k gui/$(id -u)/com.pmintern.watcher"

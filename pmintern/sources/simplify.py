@@ -8,7 +8,8 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from ..http import get_json
+from ..config import ROOT
+from ..http import get_json_cached
 from ..models import Job
 
 FEED = ("https://raw.githubusercontent.com/SimplifyJobs/"
@@ -16,7 +17,8 @@ FEED = ("https://raw.githubusercontent.com/SimplifyJobs/"
 
 
 def fetch(board: str, company: str) -> list[Job]:
-    data = get_json(FEED.format(board=board), timeout=45)
+    cache = ROOT / ".cache" / f"{board}.json"
+    data = get_json_cached(FEED.format(board=board), cache)
     jobs = []
     for item in data:
         # The feed keeps historical rows; only alert on live ones.

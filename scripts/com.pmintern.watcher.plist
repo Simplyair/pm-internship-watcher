@@ -15,9 +15,9 @@
   <key>WorkingDirectory</key>
   <string>/Users/lawrencexu/Desktop/pm internship</string>
 
-  <!-- Every 15 minutes. Skipped while the Mac sleeps; fires on wake. -->
+  <!-- Every 5 minutes. Skipped while the Mac sleeps; fires on wake. -->
   <key>StartInterval</key>
-  <integer>900</integer>
+  <integer>300</integer>
 
   <key>RunAtLoad</key>
   <true/>

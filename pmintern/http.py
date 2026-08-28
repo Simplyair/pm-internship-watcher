@@ -96,3 +96,50 @@ def post_json(url: str, payload: dict, timeout: int = 25, retries: int = 2):
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
     raise FetchError(f"{type(last).__name__}: {last} for {url}")
+
+
+def get_json_cached(url: str, cache_path, timeout: int = 45, retries: int = 2):
+    """GET with ETag revalidation, backed by an on-disk cache.
+
+    Large feeds re-send megabytes on every poll otherwise. A 304 costs a few
+    hundred bytes and lets us poll often without hammering the host.
+    """
+    import pathlib
+
+    cache_path = pathlib.Path(cache_path)
+    meta_path = cache_path.with_suffix(cache_path.suffix + ".etag")
+    etag = ""
+    if cache_path.exists() and meta_path.exists():
+        etag = meta_path.read_text(encoding="utf-8").strip()
+
+    headers = {"User-Agent": USER_AGENT, "Accept": "application/json"}
+    if etag:
+        headers["If-None-Match"] = etag
+
+    last: Exception | None = None
+    for attempt in range(retries + 1):
+        req = urllib.request.Request(url, headers=headers)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=ssl_context()) as resp:
+                body = resp.read()
+                new_etag = resp.headers.get("ETag", "")
+                cache_path.parent.mkdir(parents=True, exist_ok=True)
+                cache_path.write_bytes(body)
+                if new_etag:
+                    meta_path.write_text(new_etag, encoding="utf-8")
+                return json.loads(body.decode("utf-8", "replace"))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 304 and cache_path.exists():
+                return json.loads(cache_path.read_text(encoding="utf-8", errors="replace"))
+            if exc.code in (404, 410):
+                raise FetchError(f"HTTP {exc.code} for {url}") from exc
+            last = exc
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+            last = exc
+        if attempt < retries:
+            time.sleep(1.5 * (attempt + 1))
+
+    # Network is down but we have a usable copy: better stale than a failed scan.
+    if cache_path.exists():
+        return json.loads(cache_path.read_text(encoding="utf-8", errors="replace"))
+    raise FetchError(f"{type(last).__name__}: {last} for {url}")
