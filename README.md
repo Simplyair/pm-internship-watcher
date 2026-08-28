@@ -1,6 +1,6 @@
 # PM Internship Watcher
 
-Polls ~200 company job boards every 15 minutes for **product management internships
+Polls ~210 job sources every 15 minutes for **product management internships
 in the US and Canada**, alerts you on Telegram the moment one appears, and tracks
 what you've applied to.
 
@@ -131,6 +131,20 @@ actual posting:
 | Greenhouse | `job-boards.greenhouse.io/**stripe**/jobs/123` | `stripe` |
 | Lever | `jobs.lever.co/**binance**/uuid` | `binance` |
 | Ashby | `jobs.ashbyhq.com/**ramp**/uuid` | `ramp` |
+| Workday | `**salesforce**.**wd12**.myworkdayjobs.com/**External_Career_Site**` | `salesforce:wd12:External_Career_Site` |
+
+### The Simplify feed
+
+Google, Meta, Microsoft, NVIDIA, TikTok and other companies run their own career
+sites with no public API. Those are covered by one entry in `companies.json`
+pointing at the [SimplifyJobs internship list](https://github.com/SimplifyJobs/Summer2027-Internships),
+a large community-maintained feed updated continuously.
+
+When the summer cycle rolls over, update that entry's board from
+`Summer2027-Internships` to the following year's repo.
+
+Postings that appear both there and on a company's own ATS are deduplicated by
+company + title, so you only get alerted once.
 
 `add` verifies the board before saving it, so a wrong guess fails loudly.
 

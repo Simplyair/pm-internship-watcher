@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS jobs (
     message_id  INTEGER,
     status      TEXT NOT NULL DEFAULT 'new',
     status_at   TEXT NOT NULL DEFAULT '',
-    notes       TEXT NOT NULL DEFAULT ''
+    notes       TEXT NOT NULL DEFAULT '',
+    dupe_key    TEXT NOT NULL DEFAULT ''
 );
 CREATE INDEX IF NOT EXISTS idx_jobs_status  ON jobs(status);
 CREATE INDEX IF NOT EXISTS idx_jobs_seen    ON jobs(first_seen);
@@ -61,7 +62,28 @@ def connect(path: Path = DB_PATH) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.executescript(SCHEMA)
+    columns = {r["name"] for r in conn.execute("PRAGMA table_info(jobs)")}
+    if "dupe_key" not in columns:
+        conn.execute("ALTER TABLE jobs ADD COLUMN dupe_key TEXT NOT NULL DEFAULT ''")
+        conn.commit()
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_jobs_dupe ON jobs(dupe_key)")
+    _backfill_dupe_keys(conn)
     return conn
+
+
+def _backfill_dupe_keys(conn: sqlite3.Connection) -> None:
+    """Fill dupe_key on rows written before cross-source dedupe existed."""
+    rows = conn.execute(
+        "SELECT key, company, title FROM jobs WHERE dupe_key = ''"
+    ).fetchall()
+    if not rows:
+        return
+    for row in rows:
+        stub = Job(source="", company=row["company"], board="", external_id="",
+                   title=row["title"], location="", url="")
+        conn.execute("UPDATE jobs SET dupe_key = ? WHERE key = ?",
+                     (stub.dupe_key, row["key"]))
+    conn.commit()
 
 
 def record_seen(conn: sqlite3.Connection, jobs: list[Job]) -> list[Job]:
@@ -69,6 +91,14 @@ def record_seen(conn: sqlite3.Connection, jobs: list[Job]) -> list[Job]:
     stamp = now()
     fresh: list[Job] = []
     for job in jobs:
+        twin = conn.execute(
+            "SELECT key FROM jobs WHERE dupe_key = ? AND key != ? AND closed_at = ''",
+            (job.dupe_key, job.key),
+        ).fetchone()
+        if twin:
+            # Same role already tracked from another feed; refresh it, stay quiet.
+            conn.execute("UPDATE jobs SET last_seen = ? WHERE key = ?", (stamp, twin["key"]))
+            continue
         cur = conn.execute("SELECT 1 FROM jobs WHERE key = ?", (job.key,))
         if cur.fetchone():
             conn.execute(
@@ -79,11 +109,11 @@ def record_seen(conn: sqlite3.Connection, jobs: list[Job]) -> list[Job]:
         conn.execute(
             """INSERT INTO jobs (key, source, company, board, external_id, title,
                                  location, url, posted_at, department,
-                                 first_seen, last_seen, status, status_at)
-               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'new',?)""",
+                                 first_seen, last_seen, status, status_at, dupe_key)
+               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,'new',?,?)""",
             (job.key, job.source, job.company, job.board, job.external_id,
              job.title, job.location, job.url, job.posted_at, job.department,
-             stamp, stamp, stamp),
+             stamp, stamp, stamp, job.dupe_key),
         )
         fresh.append(job)
     conn.commit()

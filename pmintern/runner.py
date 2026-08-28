@@ -43,7 +43,7 @@ def _scan_board(company: dict) -> tuple[dict, list[Job] | None, str]:
 
 
 def scan(conn, *, workers: int = 12, require_location: bool = True,
-         verbose: bool = False) -> ScanResult:
+         verbose: bool = False, record: bool = True) -> ScanResult:
     companies = load_companies()
     was_empty = store.stats(conn)["_total"] == 0
     failed: list[tuple[str, str]] = []
@@ -67,6 +67,22 @@ def scan(conn, *, workers: int = 12, require_location: bool = True,
                 for hit in hits:
                     print(f"  + {hit}")
 
+    if not record:
+        # Dry runs must not mark postings as seen, or the real run goes silent.
+        rows = conn.execute("SELECT key, dupe_key FROM jobs WHERE closed_at = ''").fetchall()
+        known = {row["key"] for row in rows}
+        known_dupes = {row["dupe_key"] for row in rows if row["dupe_key"]}
+        preview, seen_dupes = [], set()
+        for job in all_matched:
+            if job.key in known or job.dupe_key in known_dupes or job.dupe_key in seen_dupes:
+                continue
+            seen_dupes.add(job.dupe_key)
+            preview.append(job)
+        return ScanResult(new_jobs=preview,
+                          matched=len(all_matched),
+                          scanned_boards=len(companies) - len(failed),
+                          failed_boards=failed, closed=0, seeded=not known)
+
     new_jobs = store.record_seen(conn, all_matched)
 
     # Anything we previously tracked on a board we just scanned successfully,
@@ -82,17 +98,20 @@ def scan(conn, *, workers: int = 12, require_location: bool = True,
                       failed_boards=failed, closed=closed, seeded=was_empty)
 
 
-def notify(conn, bot: telegram.Telegram, result: ScanResult, dry_run: bool = False) -> int:
+def notify(conn, bot: telegram.Telegram, result: ScanResult, dry_run: bool = False,
+           digest: bool = False) -> int:
     """Send alerts for new jobs. First run sends one digest instead of a flood."""
     jobs = result.new_jobs
     if not jobs:
         return 0
 
-    if result.seeded:
-        text = _digest(jobs, header=(
-            f"<b>Tracker started</b>\n{len(jobs)} open PM internships found. "
-            f"You will get an individual alert for each new one from now on."
-        ))
+    if result.seeded or digest:
+        header = (f"<b>Tracker started</b>\n{len(jobs)} open PM internships found. "
+                  f"You will get an individual alert for each new one from now on.")
+        if digest and not result.seeded:
+            header = (f"<b>{len(jobs)} postings added</b>\nFrom newly added sources. "
+                      f"Individual alerts resume for anything new after this.")
+        text = _digest(jobs, header=header)
         if dry_run:
             print(text)
         else:

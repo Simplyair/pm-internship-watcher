@@ -26,6 +26,12 @@ NOT_PM = (
     r"\bproduct marketing\b",
     r"\bproduct design(?:er)?\b",
     r"\bproduct engineer",
+    r"\bproduct development engineer",
+    r"\b(?:full ?stack|front ?end|back ?end|hardware|mechanical|electrical|systems?|"
+    r"test|quality|validation|manufacturing|process|packaging|firmware|asic|silicon)"
+    r"\s+engineer",
+    r"\bengineering intern",
+    r"\bengineer intern",
     r"\bproduct security\b",
     r"\bproduct support\b",
     r"\bproduct operations? (?:associate|specialist|coordinator)\b",

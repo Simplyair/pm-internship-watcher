@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from dataclasses import dataclass, field
 
 
@@ -23,6 +24,16 @@ class Job:
         """Stable dedupe key. Survives title edits and URL tracking params."""
         raw = f"{self.source}:{self.board}:{self.external_id}"
         return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16]
+
+    @property
+    def dupe_key(self) -> str:
+        """Cross-source identity: the same role listed on two feeds collapses here.
+
+        Company + title only -- a company posting one internship across several
+        cities is one opportunity, not five alerts.
+        """
+        norm = re.sub(r"[^a-z0-9]+", "", f"{self.company}{self.title}".lower())
+        return hashlib.sha1(norm.encode("utf-8")).hexdigest()[:16]
 
     def __str__(self) -> str:
         return f"{self.company} — {self.title} ({self.location})"

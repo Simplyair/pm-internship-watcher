@@ -54,7 +54,8 @@ def cmd_scan(args) -> None:
     conn = store.connect()
     dry = args.dry_run or config.get_bool("DRY_RUN")
     started = time.time()
-    result = scan(conn, require_location=not args.any_location, verbose=args.verbose)
+    result = scan(conn, require_location=not args.any_location,
+                  verbose=args.verbose, record=not dry)
 
     print(f"scanned {result.scanned_boards} boards in {time.time()-started:.0f}s | "
           f"{result.matched} matching postings live | {len(result.new_jobs)} new"
@@ -68,11 +69,11 @@ def cmd_scan(args) -> None:
     if not result.new_jobs:
         return
     if dry:
-        notify(conn, None, result, dry_run=True)  # type: ignore[arg-type]
+        notify(conn, None, result, dry_run=True, digest=args.digest)  # type: ignore[arg-type]
         print(f"\n[dry run] {len(result.new_jobs)} alert(s) not sent")
         return
     bot = bot_from_env()
-    sent = notify(conn, bot, result)
+    sent = notify(conn, bot, result, digest=args.digest)
     print(f"sent {sent} alert(s) to Telegram")
 
 
@@ -357,6 +358,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true", help="print alerts instead of sending")
     p.add_argument("--verbose", "-v", action="store_true")
     p.add_argument("--any-location", action="store_true", help="do not filter to US/Canada")
+    p.add_argument("--digest", action="store_true",
+                   help="send one summary message instead of one alert per posting")
     p.set_defaults(func=cmd_scan)
 
     p = sub.add_parser("watch", help="scan on a loop")

@@ -1,9 +1,11 @@
 {
-  "_comment": "Companies polled for PM internships. Add entries with `python3 cli.py add <name> <source> <board>` (it verifies before saving). Set enabled=false to skip one without deleting it.",
+  "_comment": "Companies polled for PM internships. Add with `python3 cli.py add <name> <source> <board>` (verifies before saving). Set enabled=false to skip one. Workday boards are 'tenant:wdHost:site'. The Simplify entry is a community feed covering companies that run their own career sites (Google, Meta, Microsoft, NVIDIA, TikTok).",
   "_sources": [
     "greenhouse",
     "lever",
-    "ashby"
+    "ashby",
+    "workday",
+    "simplify"
   ],
   "companies": [
     {
@@ -241,6 +243,12 @@
       "enabled": true
     },
     {
+      "name": "Clipboard Health",
+      "source": "ashby",
+      "board": "clipboard",
+      "enabled": true
+    },
+    {
       "name": "Cloudflare",
       "source": "greenhouse",
       "board": "cloudflare",
@@ -322,6 +330,12 @@
       "name": "Discord",
       "source": "greenhouse",
       "board": "discord",
+      "enabled": true
+    },
+    {
+      "name": "DoubleVerify",
+      "source": "greenhouse",
+      "board": "doubleverify",
       "enabled": true
     },
     {
@@ -685,6 +699,12 @@
       "enabled": true
     },
     {
+      "name": "NVIDIA",
+      "source": "workday",
+      "board": "nvidia:wd5:NVIDIAExternalCareerSite",
+      "enabled": true
+    },
+    {
       "name": "Okta",
       "source": "greenhouse",
       "board": "okta",
@@ -712,6 +732,12 @@
       "name": "OpenTable",
       "source": "greenhouse",
       "board": "opentable",
+      "enabled": true
+    },
+    {
+      "name": "OpusClip",
+      "source": "ashby",
+      "board": "opusclip",
       "enabled": true
     },
     {
@@ -919,6 +945,12 @@
       "enabled": true
     },
     {
+      "name": "Salesforce",
+      "source": "workday",
+      "board": "salesforce:wd12:External_Career_Site",
+      "enabled": true
+    },
+    {
       "name": "Salesloft",
       "source": "greenhouse",
       "board": "salesloft",
@@ -976,6 +1008,12 @@
       "name": "Sierra",
       "source": "ashby",
       "board": "sierra",
+      "enabled": true
+    },
+    {
+      "name": "Simplify community feed",
+      "source": "simplify",
+      "board": "Summer2027-Internships",
       "enabled": true
     },
     {
@@ -1078,6 +1116,12 @@
       "name": "Synthesia",
       "source": "ashby",
       "board": "synthesia",
+      "enabled": true
+    },
+    {
+      "name": "Take-Two / Zynga",
+      "source": "greenhouse",
+      "board": "taketwo",
       "enabled": true
     },
     {
