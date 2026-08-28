@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.pmintern.watcher</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Library/Frameworks/Python.framework/Versions/3.11/bin/python3</string>
+    <string>/Users/lawrencexu/Desktop/pm internship/cli.py</string>
+    <string>scan</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/lawrencexu/Desktop/pm internship</string>
+
+  <!-- Every 15 minutes. Skipped while the Mac sleeps; fires on wake. -->
+  <key>StartInterval</key>
+  <integer>900</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/lawrencexu/Desktop/pm internship/logs/watcher.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/lawrencexu/Desktop/pm internship/logs/watcher.err.log</string>
+</dict>
+</plist>

@@ -1,0 +1,1228 @@
+{
+  "_comment": "Companies polled for PM internships. Add entries with `python3 cli.py add <name> <source> <board>` (it verifies before saving). Set enabled=false to skip one without deleting it.",
+  "_sources": [
+    "greenhouse",
+    "lever",
+    "ashby"
+  ],
+  "companies": [
+    {
+      "name": "1Password",
+      "source": "ashby",
+      "board": "1password",
+      "enabled": true
+    },
+    {
+      "name": "Abridge",
+      "source": "ashby",
+      "board": "abridge",
+      "enabled": true
+    },
+    {
+      "name": "Acorns",
+      "source": "ashby",
+      "board": "acorns",
+      "enabled": true
+    },
+    {
+      "name": "Adyen",
+      "source": "greenhouse",
+      "board": "adyen",
+      "enabled": true
+    },
+    {
+      "name": "Affirm",
+      "source": "greenhouse",
+      "board": "affirm",
+      "enabled": true
+    },
+    {
+      "name": "Airbnb",
+      "source": "greenhouse",
+      "board": "airbnb",
+      "enabled": true
+    },
+    {
+      "name": "Airbyte",
+      "source": "ashby",
+      "board": "airbyte",
+      "enabled": true
+    },
+    {
+      "name": "Airtable",
+      "source": "greenhouse",
+      "board": "airtable",
+      "enabled": true
+    },
+    {
+      "name": "Alchemy",
+      "source": "ashby",
+      "board": "alchemy",
+      "enabled": true
+    },
+    {
+      "name": "Alloy",
+      "source": "lever",
+      "board": "alloy",
+      "enabled": true
+    },
+    {
+      "name": "AllTrails",
+      "source": "lever",
+      "board": "alltrails",
+      "enabled": true
+    },
+    {
+      "name": "Amber",
+      "source": "ashby",
+      "board": "amber",
+      "enabled": true
+    },
+    {
+      "name": "Amplitude",
+      "source": "greenhouse",
+      "board": "amplitude",
+      "enabled": true
+    },
+    {
+      "name": "Anchorage",
+      "source": "lever",
+      "board": "anchorage",
+      "enabled": true
+    },
+    {
+      "name": "Andela",
+      "source": "ashby",
+      "board": "andela",
+      "enabled": true
+    },
+    {
+      "name": "Angi",
+      "source": "ashby",
+      "board": "angi",
+      "enabled": true
+    },
+    {
+      "name": "Anthropic",
+      "source": "greenhouse",
+      "board": "anthropic",
+      "enabled": true
+    },
+    {
+      "name": "Asana",
+      "source": "greenhouse",
+      "board": "asana",
+      "enabled": true
+    },
+    {
+      "name": "Attention",
+      "source": "ashby",
+      "board": "attention",
+      "enabled": true
+    },
+    {
+      "name": "Attentive",
+      "source": "greenhouse",
+      "board": "attentive",
+      "enabled": true
+    },
+    {
+      "name": "Benchling",
+      "source": "ashby",
+      "board": "benchling",
+      "enabled": true
+    },
+    {
+      "name": "Betterment",
+      "source": "greenhouse",
+      "board": "betterment",
+      "enabled": true
+    },
+    {
+      "name": "Binance",
+      "source": "lever",
+      "board": "binance",
+      "enabled": true
+    },
+    {
+      "name": "BitGo",
+      "source": "greenhouse",
+      "board": "bitgo",
+      "enabled": true
+    },
+    {
+      "name": "Blend",
+      "source": "greenhouse",
+      "board": "blend",
+      "enabled": true
+    },
+    {
+      "name": "Braze",
+      "source": "greenhouse",
+      "board": "braze",
+      "enabled": true
+    },
+    {
+      "name": "Brex",
+      "source": "greenhouse",
+      "board": "brex",
+      "enabled": true
+    },
+    {
+      "name": "Buildkite",
+      "source": "greenhouse",
+      "board": "buildkite",
+      "enabled": true
+    },
+    {
+      "name": "Calendly",
+      "source": "greenhouse",
+      "board": "calendly",
+      "enabled": true
+    },
+    {
+      "name": "Calm",
+      "source": "greenhouse",
+      "board": "calm",
+      "enabled": true
+    },
+    {
+      "name": "Carta",
+      "source": "greenhouse",
+      "board": "carta",
+      "enabled": true
+    },
+    {
+      "name": "Cedar",
+      "source": "ashby",
+      "board": "cedar",
+      "enabled": true
+    },
+    {
+      "name": "Character",
+      "source": "ashby",
+      "board": "character",
+      "enabled": true
+    },
+    {
+      "name": "Chime",
+      "source": "greenhouse",
+      "board": "chime",
+      "enabled": true
+    },
+    {
+      "name": "Chowbus",
+      "source": "greenhouse",
+      "board": "chowbus",
+      "enabled": true
+    },
+    {
+      "name": "Circle",
+      "source": "ashby",
+      "board": "circle",
+      "enabled": true
+    },
+    {
+      "name": "CircleCI",
+      "source": "greenhouse",
+      "board": "circleci",
+      "enabled": true
+    },
+    {
+      "name": "ClickHouse",
+      "source": "greenhouse",
+      "board": "clickhouse",
+      "enabled": true
+    },
+    {
+      "name": "ClickUp",
+      "source": "ashby",
+      "board": "clickup",
+      "enabled": true
+    },
+    {
+      "name": "Cloudflare",
+      "source": "greenhouse",
+      "board": "cloudflare",
+      "enabled": true
+    },
+    {
+      "name": "Cockroach Labs",
+      "source": "greenhouse",
+      "board": "cockroachlabs",
+      "enabled": true
+    },
+    {
+      "name": "Cognition",
+      "source": "ashby",
+      "board": "cognition",
+      "enabled": true
+    },
+    {
+      "name": "Coinbase",
+      "source": "greenhouse",
+      "board": "coinbase",
+      "enabled": true
+    },
+    {
+      "name": "Column",
+      "source": "ashby",
+      "board": "column",
+      "enabled": true
+    },
+    {
+      "name": "Commure",
+      "source": "ashby",
+      "board": "commure",
+      "enabled": true
+    },
+    {
+      "name": "Confluent",
+      "source": "ashby",
+      "board": "confluent",
+      "enabled": true
+    },
+    {
+      "name": "Cursor",
+      "source": "ashby",
+      "board": "cursor",
+      "enabled": true
+    },
+    {
+      "name": "Dashlane",
+      "source": "greenhouse",
+      "board": "dashlane",
+      "enabled": true
+    },
+    {
+      "name": "Databricks",
+      "source": "greenhouse",
+      "board": "databricks",
+      "enabled": true
+    },
+    {
+      "name": "Datadog",
+      "source": "greenhouse",
+      "board": "datadog",
+      "enabled": true
+    },
+    {
+      "name": "Decagon",
+      "source": "ashby",
+      "board": "decagon",
+      "enabled": true
+    },
+    {
+      "name": "Descript",
+      "source": "greenhouse",
+      "board": "descript",
+      "enabled": true
+    },
+    {
+      "name": "Discord",
+      "source": "greenhouse",
+      "board": "discord",
+      "enabled": true
+    },
+    {
+      "name": "Dropbox",
+      "source": "greenhouse",
+      "board": "dropbox",
+      "enabled": true
+    },
+    {
+      "name": "Dune",
+      "source": "ashby",
+      "board": "dune",
+      "enabled": true
+    },
+    {
+      "name": "Duolingo",
+      "source": "greenhouse",
+      "board": "duolingo",
+      "enabled": true
+    },
+    {
+      "name": "Earnest",
+      "source": "greenhouse",
+      "board": "earnest",
+      "enabled": true
+    },
+    {
+      "name": "Eight Sleep",
+      "source": "ashby",
+      "board": "eightsleep",
+      "enabled": true
+    },
+    {
+      "name": "Elastic",
+      "source": "greenhouse",
+      "board": "elastic",
+      "enabled": true
+    },
+    {
+      "name": "ElevenLabs",
+      "source": "ashby",
+      "board": "elevenlabs",
+      "enabled": true
+    },
+    {
+      "name": "Expel",
+      "source": "greenhouse",
+      "board": "expel",
+      "enabled": true
+    },
+    {
+      "name": "Faire",
+      "source": "greenhouse",
+      "board": "faire",
+      "enabled": true
+    },
+    {
+      "name": "FalconX",
+      "source": "greenhouse",
+      "board": "falconx",
+      "enabled": true
+    },
+    {
+      "name": "Figma",
+      "source": "greenhouse",
+      "board": "figma",
+      "enabled": true
+    },
+    {
+      "name": "Fireblocks",
+      "source": "greenhouse",
+      "board": "fireblocks",
+      "enabled": true
+    },
+    {
+      "name": "Fivetran",
+      "source": "greenhouse",
+      "board": "fivetran",
+      "enabled": true
+    },
+    {
+      "name": "Flexport",
+      "source": "greenhouse",
+      "board": "flexport",
+      "enabled": true
+    },
+    {
+      "name": "Forter",
+      "source": "greenhouse",
+      "board": "forter",
+      "enabled": true
+    },
+    {
+      "name": "Gemini",
+      "source": "greenhouse",
+      "board": "gemini",
+      "enabled": true
+    },
+    {
+      "name": "Ghost",
+      "source": "greenhouse",
+      "board": "ghost",
+      "enabled": true
+    },
+    {
+      "name": "GitLab",
+      "source": "greenhouse",
+      "board": "gitlab",
+      "enabled": true
+    },
+    {
+      "name": "GoDaddy",
+      "source": "greenhouse",
+      "board": "godaddy",
+      "enabled": true
+    },
+    {
+      "name": "Gusto",
+      "source": "greenhouse",
+      "board": "gusto",
+      "enabled": true
+    },
+    {
+      "name": "Handshake",
+      "source": "ashby",
+      "board": "handshake",
+      "enabled": true
+    },
+    {
+      "name": "Harvey",
+      "source": "ashby",
+      "board": "harvey",
+      "enabled": true
+    },
+    {
+      "name": "Headway",
+      "source": "ashby",
+      "board": "headway",
+      "enabled": true
+    },
+    {
+      "name": "Hex",
+      "source": "ashby",
+      "board": "hex",
+      "enabled": true
+    },
+    {
+      "name": "Highnote",
+      "source": "greenhouse",
+      "board": "highnote",
+      "enabled": true
+    },
+    {
+      "name": "Hightouch",
+      "source": "greenhouse",
+      "board": "hightouch",
+      "enabled": true
+    },
+    {
+      "name": "Huntress",
+      "source": "greenhouse",
+      "board": "huntress",
+      "enabled": true
+    },
+    {
+      "name": "Instacart",
+      "source": "greenhouse",
+      "board": "instacart",
+      "enabled": true
+    },
+    {
+      "name": "Invisible",
+      "source": "greenhouse",
+      "board": "invisible",
+      "enabled": true
+    },
+    {
+      "name": "Jamf",
+      "source": "greenhouse",
+      "board": "jamf",
+      "enabled": true
+    },
+    {
+      "name": "Justworks",
+      "source": "greenhouse",
+      "board": "justworks",
+      "enabled": true
+    },
+    {
+      "name": "Keyrock",
+      "source": "ashby",
+      "board": "keyrock",
+      "enabled": true
+    },
+    {
+      "name": "Klaviyo",
+      "source": "greenhouse",
+      "board": "klaviyo",
+      "enabled": true
+    },
+    {
+      "name": "Lattice",
+      "source": "greenhouse",
+      "board": "lattice",
+      "enabled": true
+    },
+    {
+      "name": "LaunchDarkly",
+      "source": "greenhouse",
+      "board": "launchdarkly",
+      "enabled": true
+    },
+    {
+      "name": "Life360",
+      "source": "greenhouse",
+      "board": "life360",
+      "enabled": true
+    },
+    {
+      "name": "Linear",
+      "source": "ashby",
+      "board": "linear",
+      "enabled": true
+    },
+    {
+      "name": "Lithic",
+      "source": "greenhouse",
+      "board": "lithic",
+      "enabled": true
+    },
+    {
+      "name": "Lucid Motors",
+      "source": "greenhouse",
+      "board": "lucidmotors",
+      "enabled": true
+    },
+    {
+      "name": "Lyft",
+      "source": "greenhouse",
+      "board": "lyft",
+      "enabled": true
+    },
+    {
+      "name": "Marqeta",
+      "source": "greenhouse",
+      "board": "marqeta",
+      "enabled": true
+    },
+    {
+      "name": "Match Group",
+      "source": "lever",
+      "board": "matchgroup",
+      "enabled": true
+    },
+    {
+      "name": "Medium",
+      "source": "greenhouse",
+      "board": "medium",
+      "enabled": true
+    },
+    {
+      "name": "Mercury",
+      "source": "greenhouse",
+      "board": "mercury",
+      "enabled": true
+    },
+    {
+      "name": "Mintlify",
+      "source": "ashby",
+      "board": "mintlify",
+      "enabled": true
+    },
+    {
+      "name": "Miro",
+      "source": "ashby",
+      "board": "miro",
+      "enabled": true
+    },
+    {
+      "name": "Mixpanel",
+      "source": "greenhouse",
+      "board": "mixpanel",
+      "enabled": true
+    },
+    {
+      "name": "Modal",
+      "source": "ashby",
+      "board": "modal",
+      "enabled": true
+    },
+    {
+      "name": "MongoDB",
+      "source": "greenhouse",
+      "board": "mongodb",
+      "enabled": true
+    },
+    {
+      "name": "Monzo",
+      "source": "greenhouse",
+      "board": "monzo",
+      "enabled": true
+    },
+    {
+      "name": "N26",
+      "source": "greenhouse",
+      "board": "n26",
+      "enabled": true
+    },
+    {
+      "name": "Neon",
+      "source": "ashby",
+      "board": "neon",
+      "enabled": true
+    },
+    {
+      "name": "NerdWallet",
+      "source": "ashby",
+      "board": "nerdwallet",
+      "enabled": true
+    },
+    {
+      "name": "Netskope",
+      "source": "greenhouse",
+      "board": "netskope",
+      "enabled": true
+    },
+    {
+      "name": "New Relic",
+      "source": "greenhouse",
+      "board": "newrelic",
+      "enabled": true
+    },
+    {
+      "name": "Nextdoor",
+      "source": "greenhouse",
+      "board": "nextdoor",
+      "enabled": true
+    },
+    {
+      "name": "Nooks",
+      "source": "ashby",
+      "board": "nooks",
+      "enabled": true
+    },
+    {
+      "name": "Notion",
+      "source": "ashby",
+      "board": "notion",
+      "enabled": true
+    },
+    {
+      "name": "Nubank",
+      "source": "ashby",
+      "board": "nubank",
+      "enabled": true
+    },
+    {
+      "name": "Nuro",
+      "source": "greenhouse",
+      "board": "nuro",
+      "enabled": true
+    },
+    {
+      "name": "Okta",
+      "source": "greenhouse",
+      "board": "okta",
+      "enabled": true
+    },
+    {
+      "name": "Olo",
+      "source": "lever",
+      "board": "olo",
+      "enabled": true
+    },
+    {
+      "name": "OpenAI",
+      "source": "ashby",
+      "board": "openai",
+      "enabled": true
+    },
+    {
+      "name": "OpenEvidence",
+      "source": "ashby",
+      "board": "openevidence",
+      "enabled": true
+    },
+    {
+      "name": "OpenTable",
+      "source": "greenhouse",
+      "board": "opentable",
+      "enabled": true
+    },
+    {
+      "name": "Orum",
+      "source": "ashby",
+      "board": "orum",
+      "enabled": true
+    },
+    {
+      "name": "Oscar",
+      "source": "greenhouse",
+      "board": "oscar",
+      "enabled": true
+    },
+    {
+      "name": "Otter",
+      "source": "greenhouse",
+      "board": "otter",
+      "enabled": true
+    },
+    {
+      "name": "Oura",
+      "source": "greenhouse",
+      "board": "oura",
+      "enabled": true
+    },
+    {
+      "name": "Output",
+      "source": "ashby",
+      "board": "output",
+      "enabled": true
+    },
+    {
+      "name": "Outreach",
+      "source": "lever",
+      "board": "outreach",
+      "enabled": true
+    },
+    {
+      "name": "Oyster",
+      "source": "ashby",
+      "board": "oyster",
+      "enabled": true
+    },
+    {
+      "name": "PagerDuty",
+      "source": "greenhouse",
+      "board": "pagerduty",
+      "enabled": true
+    },
+    {
+      "name": "Palantir",
+      "source": "lever",
+      "board": "palantir",
+      "enabled": true
+    },
+    {
+      "name": "Patreon",
+      "source": "ashby",
+      "board": "patreon",
+      "enabled": true
+    },
+    {
+      "name": "Paxos",
+      "source": "ashby",
+      "board": "paxos",
+      "enabled": true
+    },
+    {
+      "name": "Payoneer",
+      "source": "greenhouse",
+      "board": "payoneer",
+      "enabled": true
+    },
+    {
+      "name": "Peloton",
+      "source": "greenhouse",
+      "board": "peloton",
+      "enabled": true
+    },
+    {
+      "name": "Perplexity",
+      "source": "ashby",
+      "board": "perplexity",
+      "enabled": true
+    },
+    {
+      "name": "Persona",
+      "source": "ashby",
+      "board": "persona",
+      "enabled": true
+    },
+    {
+      "name": "Pika",
+      "source": "ashby",
+      "board": "pika",
+      "enabled": true
+    },
+    {
+      "name": "Pinterest",
+      "source": "greenhouse",
+      "board": "pinterest",
+      "enabled": true
+    },
+    {
+      "name": "Plaid",
+      "source": "ashby",
+      "board": "plaid",
+      "enabled": true
+    },
+    {
+      "name": "PlanetScale",
+      "source": "greenhouse",
+      "board": "planetscale",
+      "enabled": true
+    },
+    {
+      "name": "Poolside",
+      "source": "ashby",
+      "board": "poolside",
+      "enabled": true
+    },
+    {
+      "name": "Postman",
+      "source": "greenhouse",
+      "board": "postman",
+      "enabled": true
+    },
+    {
+      "name": "Public",
+      "source": "greenhouse",
+      "board": "public",
+      "enabled": true
+    },
+    {
+      "name": "Railway",
+      "source": "ashby",
+      "board": "railway",
+      "enabled": true
+    },
+    {
+      "name": "Ramp",
+      "source": "ashby",
+      "board": "ramp",
+      "enabled": true
+    },
+    {
+      "name": "Reddit",
+      "source": "greenhouse",
+      "board": "reddit",
+      "enabled": true
+    },
+    {
+      "name": "Remote",
+      "source": "greenhouse",
+      "board": "remote",
+      "enabled": true
+    },
+    {
+      "name": "Render",
+      "source": "ashby",
+      "board": "render",
+      "enabled": true
+    },
+    {
+      "name": "Replit",
+      "source": "ashby",
+      "board": "replit",
+      "enabled": true
+    },
+    {
+      "name": "Ripple",
+      "source": "greenhouse",
+      "board": "ripple",
+      "enabled": true
+    },
+    {
+      "name": "Riskified",
+      "source": "greenhouse",
+      "board": "riskified",
+      "enabled": true
+    },
+    {
+      "name": "Robinhood",
+      "source": "greenhouse",
+      "board": "robinhood",
+      "enabled": true
+    },
+    {
+      "name": "Roblox",
+      "source": "greenhouse",
+      "board": "roblox",
+      "enabled": true
+    },
+    {
+      "name": "Rubrik",
+      "source": "greenhouse",
+      "board": "rubrik",
+      "enabled": true
+    },
+    {
+      "name": "Runway",
+      "source": "ashby",
+      "board": "runway",
+      "enabled": true
+    },
+    {
+      "name": "Salesloft",
+      "source": "greenhouse",
+      "board": "salesloft",
+      "enabled": true
+    },
+    {
+      "name": "Samsara",
+      "source": "greenhouse",
+      "board": "samsara",
+      "enabled": true
+    },
+    {
+      "name": "Sardine",
+      "source": "ashby",
+      "board": "sardine",
+      "enabled": true
+    },
+    {
+      "name": "Scale AI",
+      "source": "greenhouse",
+      "board": "scaleai",
+      "enabled": true
+    },
+    {
+      "name": "SeatGeek",
+      "source": "greenhouse",
+      "board": "seatgeek",
+      "enabled": true
+    },
+    {
+      "name": "Sentry",
+      "source": "ashby",
+      "board": "sentry",
+      "enabled": true
+    },
+    {
+      "name": "Sezzle",
+      "source": "greenhouse",
+      "board": "sezzle",
+      "enabled": true
+    },
+    {
+      "name": "Shield AI",
+      "source": "lever",
+      "board": "shieldai",
+      "enabled": true
+    },
+    {
+      "name": "Shopmonkey",
+      "source": "greenhouse",
+      "board": "shopmonkey",
+      "enabled": true
+    },
+    {
+      "name": "Sierra",
+      "source": "ashby",
+      "board": "sierra",
+      "enabled": true
+    },
+    {
+      "name": "Skydio",
+      "source": "ashby",
+      "board": "skydio",
+      "enabled": true
+    },
+    {
+      "name": "Slice",
+      "source": "greenhouse",
+      "board": "slice",
+      "enabled": true
+    },
+    {
+      "name": "Smartsheet",
+      "source": "greenhouse",
+      "board": "smartsheet",
+      "enabled": true
+    },
+    {
+      "name": "Snowflake",
+      "source": "ashby",
+      "board": "snowflake",
+      "enabled": true
+    },
+    {
+      "name": "Socure",
+      "source": "ashby",
+      "board": "socure",
+      "enabled": true
+    },
+    {
+      "name": "SoFi",
+      "source": "greenhouse",
+      "board": "sofi",
+      "enabled": true
+    },
+    {
+      "name": "Splice",
+      "source": "greenhouse",
+      "board": "splice",
+      "enabled": true
+    },
+    {
+      "name": "Spotify",
+      "source": "lever",
+      "board": "spotify",
+      "enabled": true
+    },
+    {
+      "name": "Squarespace",
+      "source": "greenhouse",
+      "board": "squarespace",
+      "enabled": true
+    },
+    {
+      "name": "Starburst",
+      "source": "greenhouse",
+      "board": "starburst",
+      "enabled": true
+    },
+    {
+      "name": "Strava",
+      "source": "ashby",
+      "board": "strava",
+      "enabled": true
+    },
+    {
+      "name": "Stripe",
+      "source": "greenhouse",
+      "board": "stripe",
+      "enabled": true
+    },
+    {
+      "name": "Substack",
+      "source": "ashby",
+      "board": "substack",
+      "enabled": true
+    },
+    {
+      "name": "Suno",
+      "source": "ashby",
+      "board": "suno",
+      "enabled": true
+    },
+    {
+      "name": "Supabase",
+      "source": "ashby",
+      "board": "supabase",
+      "enabled": true
+    },
+    {
+      "name": "Sweetgreen",
+      "source": "greenhouse",
+      "board": "sweetgreen",
+      "enabled": true
+    },
+    {
+      "name": "Synthesia",
+      "source": "ashby",
+      "board": "synthesia",
+      "enabled": true
+    },
+    {
+      "name": "Tanium",
+      "source": "greenhouse",
+      "board": "tanium",
+      "enabled": true
+    },
+    {
+      "name": "tastytrade",
+      "source": "greenhouse",
+      "board": "tastytrade",
+      "enabled": true
+    },
+    {
+      "name": "Temporal",
+      "source": "ashby",
+      "board": "temporal",
+      "enabled": true
+    },
+    {
+      "name": "Thumbtack",
+      "source": "ashby",
+      "board": "thumbtack",
+      "enabled": true
+    },
+    {
+      "name": "Toast",
+      "source": "greenhouse",
+      "board": "toast",
+      "enabled": true
+    },
+    {
+      "name": "Twilio",
+      "source": "greenhouse",
+      "board": "twilio",
+      "enabled": true
+    },
+    {
+      "name": "Udio",
+      "source": "greenhouse",
+      "board": "udio",
+      "enabled": true
+    },
+    {
+      "name": "Unit",
+      "source": "ashby",
+      "board": "unit",
+      "enabled": true
+    },
+    {
+      "name": "Upgrade",
+      "source": "greenhouse",
+      "board": "upgrade",
+      "enabled": true
+    },
+    {
+      "name": "Upstart",
+      "source": "greenhouse",
+      "board": "upstart",
+      "enabled": true
+    },
+    {
+      "name": "Vanta",
+      "source": "ashby",
+      "board": "vanta",
+      "enabled": true
+    },
+    {
+      "name": "Velocity",
+      "source": "ashby",
+      "board": "velocity",
+      "enabled": true
+    },
+    {
+      "name": "Vercel",
+      "source": "greenhouse",
+      "board": "vercel",
+      "enabled": true
+    },
+    {
+      "name": "Veriff",
+      "source": "greenhouse",
+      "board": "veriff",
+      "enabled": true
+    },
+    {
+      "name": "Verkada",
+      "source": "greenhouse",
+      "board": "verkada",
+      "enabled": true
+    },
+    {
+      "name": "Vivid",
+      "source": "ashby",
+      "board": "vivid",
+      "enabled": true
+    },
+    {
+      "name": "Warp",
+      "source": "ashby",
+      "board": "warp",
+      "enabled": true
+    },
+    {
+      "name": "Waymo",
+      "source": "greenhouse",
+      "board": "waymo",
+      "enabled": true
+    },
+    {
+      "name": "Wealthfront",
+      "source": "lever",
+      "board": "wealthfront",
+      "enabled": true
+    },
+    {
+      "name": "Webflow",
+      "source": "greenhouse",
+      "board": "webflow",
+      "enabled": true
+    },
+    {
+      "name": "Whoop",
+      "source": "ashby",
+      "board": "whoop",
+      "enabled": true
+    },
+    {
+      "name": "Wise",
+      "source": "greenhouse",
+      "board": "wise",
+      "enabled": true
+    },
+    {
+      "name": "Zapier",
+      "source": "ashby",
+      "board": "zapier",
+      "enabled": true
+    },
+    {
+      "name": "Zoox",
+      "source": "lever",
+      "board": "zoox",
+      "enabled": true
+    }
+  ]
+}

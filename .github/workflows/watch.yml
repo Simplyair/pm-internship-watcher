@@ -1,0 +1,47 @@
+# Cloud alternative to launchd: runs even when your Mac is closed.
+# Setup: push this repo to GitHub (private), then add two repository secrets
+# under Settings > Secrets and variables > Actions:
+#   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+name: PM internship watch
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # GitHub queues these; expect 15-30 min in practice
+  workflow_dispatch:
+
+concurrency:
+  group: pm-internship-watch
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # jobs.db holds the dedupe ledger, so it has to survive between runs.
+      - name: Restore database
+        uses: actions/cache/restore@v4
+        with:
+          path: jobs.db
+          key: pm-jobs-db-${{ github.run_id }}
+          restore-keys: pm-jobs-db-
+
+      - name: Scan
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 cli.py scan
+
+      - name: Save database
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: jobs.db
+          key: pm-jobs-db-${{ github.run_id }}
