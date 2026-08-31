@@ -11,35 +11,46 @@ import re
 
 # --- title: is this product management? ------------------------------------
 
-PM_PATTERNS = (
-    r"\bproduct manage(?:r|ment)\b",
-    r"\bproduct owner\b",
+# Unambiguous product-management wording. If one of these is present the role
+# is PM, regardless of any weaker "product" words elsewhere in the title
+# (e.g. "Product Management Intern - Product Innovation").
+STRONG_PM = (
+    r"\bproduct manage(?:r|ment|rs)\b",
     r"\bassociate product manager\b",
-    r"\bproduct management\b",
-    r"\bpm\b",
+    r"\bproduct owner\b",
     r"\bapm\b",
-    r"\bproduct\b",          # broad; narrowed by NOT_PM below
+    r"\bpm\b",
+    r"\btpm\b",
 )
 
-# Roles that contain "product" but are not product management.
+# A bare "Product Intern" / "Product Internship" is how many startups label a
+# PM internship. Requires the two words adjacent, so "Product Development
+# Intern" and "Product Operations Intern" do not qualify.
+SOFT_PM = (
+    r"\bproduct intern(?:ship)?\b",
+    r"\bproduct co-?op\b",
+)
+
+# Roles that contain "product" but are not product management. Checked first,
+# so these veto even a strong match ("Product Marketing Manager Intern").
 NOT_PM = (
     r"\bproduct marketing\b",
     r"\bproduct design(?:er)?\b",
     r"\bproduct engineer",
     r"\bproduct development engineer",
+    r"\bproduct security\b",
+    r"\bproduct support\b",
+    r"\bproduct counsel\b",
+    r"\bproduct quality\b",
+    r"\bproduction\b",
     r"\b(?:full ?stack|front ?end|back ?end|hardware|mechanical|electrical|systems?|"
     r"test|quality|validation|manufacturing|process|packaging|firmware|asic|silicon)"
     r"\s+engineer",
     r"\bengineering intern",
     r"\bengineer intern",
-    r"\bproduct security\b",
-    r"\bproduct support\b",
-    r"\bproduct operations? (?:associate|specialist|coordinator)\b",
-    r"\bproduct counsel\b",
-    r"\bproduct quality\b",
-    r"\bproduction\b",
     r"\bsoftware engineer",
     r"\bdata scientist\b",
+    r"\bdata science\b",
     r"\bdata engineer\b",
     r"\bui/ux\b",
     r"\bux design",
@@ -72,25 +83,32 @@ SENIOR_PATTERNS = (
 
 # --- location: US / Canada -------------------------------------------------
 
-US_STATES = (
-    "alabama alaska arizona arkansas california colorado connecticut delaware "
-    "florida georgia hawaii idaho illinois indiana iowa kansas kentucky louisiana "
-    "maine maryland massachusetts michigan minnesota mississippi missouri montana "
-    "nebraska nevada hampshire jersey mexico york carolina dakota ohio oklahoma "
-    "oregon pennsylvania rhode island tennessee texas utah vermont virginia "
-    "washington wisconsin wyoming"
-).split()
+# Full names only. These were once .split() into single words, which made
+# "island" (from "prince edward island") match "Long Island City" and
+# "mexico" (from "new mexico") match "Mexico City". Phrases, not tokens.
+US_STATES = [
+    "alabama", "alaska", "arizona", "arkansas", "california", "colorado",
+    "connecticut", "delaware", "florida", "georgia", "hawaii", "idaho",
+    "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
+    "maryland", "massachusetts", "michigan", "minnesota", "mississippi",
+    "missouri", "montana", "nebraska", "nevada", "new hampshire", "new jersey",
+    "new mexico", "new york", "north carolina", "north dakota", "ohio",
+    "oklahoma", "oregon", "pennsylvania", "rhode island", "south carolina",
+    "south dakota", "tennessee", "texas", "utah", "vermont", "virginia",
+    "washington", "west virginia", "wisconsin", "wyoming",
+]
 
 US_ABBREV = (
     "AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO "
     "MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY DC"
 ).split()
 
-CA_PROVINCES = (
-    "ontario quebec québec alberta manitoba saskatchewan "
-    "nova scotia brunswick newfoundland labrador "
-    "prince edward island yukon nunavut"
-).split() + ["british columbia"]
+CA_PROVINCES = [
+    "ontario", "quebec", "québec", "alberta", "manitoba", "saskatchewan",
+    "british columbia", "nova scotia", "new brunswick", "newfoundland",
+    "labrador", "prince edward island", "yukon", "nunavut",
+    "northwest territories",
+]
 
 CA_ABBREV = "ON QC BC AB MB SK NS NB NL PE PEI YT NT NU".split()
 
@@ -152,11 +170,19 @@ def _contains_word(text: str, words) -> bool:
 
 
 def is_pm_title(title: str) -> bool:
-    """True if the title reads as a product-management role."""
+    """True only for product *management* roles.
+
+    Three tiers: a disqualifying word rules the title out; explicit product
+    management wording rules it in; a bare "Product Intern" also counts, since
+    that is how many startups label the same job. Everything else -- product
+    development, product operations, product analyst -- is not PM.
+    """
     low = title.lower()
     if _matches_any(low, NOT_PM):
         return False
-    return _matches_any(low, PM_PATTERNS)
+    if _matches_any(low, STRONG_PM):
+        return True
+    return _matches_any(low, SOFT_PM)
 
 
 def is_internship_title(title: str) -> bool:

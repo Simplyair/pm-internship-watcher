@@ -21,6 +21,12 @@
       "enabled": true
     },
     {
+      "name": "Achievers",
+      "source": "lever",
+      "board": "achievers",
+      "enabled": true
+    },
+    {
       "name": "Acorns",
       "source": "ashby",
       "board": "acorns",
@@ -111,6 +117,12 @@
       "enabled": true
     },
     {
+      "name": "Arcadia",
+      "source": "lever",
+      "board": "arcadia",
+      "enabled": true
+    },
+    {
       "name": "Asana",
       "source": "greenhouse",
       "board": "asana",
@@ -135,6 +147,12 @@
       "enabled": true
     },
     {
+      "name": "Benevity",
+      "source": "ashby",
+      "board": "benevity",
+      "enabled": true
+    },
+    {
       "name": "Betterment",
       "source": "greenhouse",
       "board": "betterment",
@@ -153,9 +171,27 @@
       "enabled": true
     },
     {
+      "name": "Blackbird Interactive",
+      "source": "lever",
+      "board": "blackbirdinteractive",
+      "enabled": true
+    },
+    {
       "name": "Blend",
       "source": "greenhouse",
       "board": "blend",
+      "enabled": true
+    },
+    {
+      "name": "BlueDot",
+      "source": "ashby",
+      "board": "bluedot",
+      "enabled": true
+    },
+    {
+      "name": "BMO",
+      "source": "workday",
+      "board": "bmo:wd3:External",
       "enabled": true
     },
     {
@@ -174,6 +210,12 @@
       "name": "Buildkite",
       "source": "greenhouse",
       "board": "buildkite",
+      "enabled": true
+    },
+    {
+      "name": "BuildOps",
+      "source": "greenhouse",
+      "board": "buildops",
       "enabled": true
     },
     {
@@ -219,6 +261,12 @@
       "enabled": true
     },
     {
+      "name": "CIBC",
+      "source": "workday",
+      "board": "cibc:wd3:Search",
+      "enabled": true
+    },
+    {
       "name": "Circle",
       "source": "ashby",
       "board": "circle",
@@ -228,6 +276,12 @@
       "name": "CircleCI",
       "source": "greenhouse",
       "board": "circleci",
+      "enabled": true
+    },
+    {
+      "name": "Clearco",
+      "source": "ashby",
+      "board": "clearco",
       "enabled": true
     },
     {
@@ -267,6 +321,12 @@
       "enabled": true
     },
     {
+      "name": "Cohere",
+      "source": "ashby",
+      "board": "cohere",
+      "enabled": true
+    },
+    {
       "name": "Coinbase",
       "source": "greenhouse",
       "board": "coinbase",
@@ -297,6 +357,18 @@
       "enabled": true
     },
     {
+      "name": "D2L",
+      "source": "greenhouse",
+      "board": "d2l",
+      "enabled": true
+    },
+    {
+      "name": "Dapper Labs",
+      "source": "ashby",
+      "board": "dapper",
+      "enabled": true
+    },
+    {
       "name": "Dashlane",
       "source": "greenhouse",
       "board": "dashlane",
@@ -318,6 +390,12 @@
       "name": "Decagon",
       "source": "ashby",
       "board": "decagon",
+      "enabled": true
+    },
+    {
+      "name": "Deep Genomics",
+      "source": "lever",
+      "board": "deepgenomics",
       "enabled": true
     },
     {
@@ -423,6 +501,18 @@
       "enabled": true
     },
     {
+      "name": "Flipp",
+      "source": "greenhouse",
+      "board": "flipp",
+      "enabled": true
+    },
+    {
+      "name": "Float",
+      "source": "ashby",
+      "board": "float",
+      "enabled": true
+    },
+    {
       "name": "Forter",
       "source": "greenhouse",
       "board": "forter",
@@ -432,6 +522,12 @@
       "name": "Gemini",
       "source": "greenhouse",
       "board": "gemini",
+      "enabled": true
+    },
+    {
+      "name": "Geotab",
+      "source": "greenhouse",
+      "board": "geotab",
       "enabled": true
     },
     {
@@ -495,6 +591,18 @@
       "enabled": true
     },
     {
+      "name": "Hootsuite",
+      "source": "greenhouse",
+      "board": "hootsuite",
+      "enabled": true
+    },
+    {
+      "name": "Hopper",
+      "source": "ashby",
+      "board": "hopper",
+      "enabled": true
+    },
+    {
       "name": "Huntress",
       "source": "greenhouse",
       "board": "huntress",
@@ -519,9 +627,27 @@
       "enabled": true
     },
     {
+      "name": "Jane Software",
+      "source": "ashby",
+      "board": "jane",
+      "enabled": true
+    },
+    {
+      "name": "Jobber",
+      "source": "ashby",
+      "board": "jobber",
+      "enabled": true
+    },
+    {
       "name": "Justworks",
       "source": "greenhouse",
       "board": "justworks",
+      "enabled": true
+    },
+    {
+      "name": "Kabam",
+      "source": "lever",
+      "board": "kabam",
       "enabled": true
     },
     {
@@ -534,6 +660,30 @@
       "name": "Klaviyo",
       "source": "greenhouse",
       "board": "klaviyo",
+      "enabled": true
+    },
+    {
+      "name": "Klue",
+      "source": "ashby",
+      "board": "klue",
+      "enabled": true
+    },
+    {
+      "name": "Knix",
+      "source": "lever",
+      "board": "knix",
+      "enabled": true
+    },
+    {
+      "name": "KOHO",
+      "source": "ashby",
+      "board": "koho",
+      "enabled": true
+    },
+    {
+      "name": "Later",
+      "source": "greenhouse",
+      "board": "later",
       "enabled": true
     },
     {
@@ -552,6 +702,12 @@
       "name": "Life360",
       "source": "greenhouse",
       "board": "life360",
+      "enabled": true
+    },
+    {
+      "name": "Lightspeed",
+      "source": "ashby",
+      "board": "lightspeed",
       "enabled": true
     },
     {
@@ -576,6 +732,18 @@
       "name": "Lyft",
       "source": "greenhouse",
       "board": "lyft",
+      "enabled": true
+    },
+    {
+      "name": "Magnet Forensics",
+      "source": "lever",
+      "board": "magnetforensics",
+      "enabled": true
+    },
+    {
+      "name": "Maple",
+      "source": "ashby",
+      "board": "maple",
       "enabled": true
     },
     {
@@ -606,6 +774,12 @@
       "name": "Mintlify",
       "source": "ashby",
       "board": "mintlify",
+      "enabled": true
+    },
+    {
+      "name": "Miovision",
+      "source": "ashby",
+      "board": "miovision",
       "enabled": true
     },
     {
@@ -645,6 +819,12 @@
       "enabled": true
     },
     {
+      "name": "Neo Financial",
+      "source": "ashby",
+      "board": "neofinancial",
+      "enabled": true
+    },
+    {
       "name": "Neon",
       "source": "ashby",
       "board": "neon",
@@ -678,6 +858,12 @@
       "name": "Nooks",
       "source": "ashby",
       "board": "nooks",
+      "enabled": true
+    },
+    {
+      "name": "Northspyre",
+      "source": "greenhouse",
+      "board": "northspyre",
       "enabled": true
     },
     {
@@ -855,6 +1041,12 @@
       "enabled": true
     },
     {
+      "name": "PointClickCare",
+      "source": "lever",
+      "board": "pointclickcare",
+      "enabled": true
+    },
+    {
       "name": "Poolside",
       "source": "ashby",
       "board": "poolside",
@@ -864,6 +1056,12 @@
       "name": "Postman",
       "source": "greenhouse",
       "board": "postman",
+      "enabled": true
+    },
+    {
+      "name": "Procurify",
+      "source": "ashby",
+      "board": "procurify",
       "enabled": true
     },
     {
@@ -909,6 +1107,12 @@
       "enabled": true
     },
     {
+      "name": "Rewind",
+      "source": "ashby",
+      "board": "rewind",
+      "enabled": true
+    },
+    {
       "name": "Ripple",
       "source": "greenhouse",
       "board": "ripple",
@@ -918,6 +1122,12 @@
       "name": "Riskified",
       "source": "greenhouse",
       "board": "riskified",
+      "enabled": true
+    },
+    {
+      "name": "Ritual",
+      "source": "greenhouse",
+      "board": "ritual",
       "enabled": true
     },
     {
@@ -963,6 +1173,12 @@
       "enabled": true
     },
     {
+      "name": "Sanctuary AI",
+      "source": "ashby",
+      "board": "sanctuary",
+      "enabled": true
+    },
+    {
       "name": "Sardine",
       "source": "ashby",
       "board": "sardine",
@@ -990,6 +1206,12 @@
       "name": "Sezzle",
       "source": "greenhouse",
       "board": "sezzle",
+      "enabled": true
+    },
+    {
+      "name": "Shakepay",
+      "source": "greenhouse",
+      "board": "shakepay",
       "enabled": true
     },
     {
@@ -1137,9 +1359,33 @@
       "enabled": true
     },
     {
+      "name": "TD Bank",
+      "source": "workday",
+      "board": "td:wd3:TD_Bank_Careers",
+      "enabled": true
+    },
+    {
       "name": "Temporal",
       "source": "ashby",
       "board": "temporal",
+      "enabled": true
+    },
+    {
+      "name": "Tenstorrent",
+      "source": "greenhouse",
+      "board": "tenstorrent",
+      "enabled": true
+    },
+    {
+      "name": "Thinkific",
+      "source": "ashby",
+      "board": "thinkific",
+      "enabled": true
+    },
+    {
+      "name": "Thomson Reuters",
+      "source": "workday",
+      "board": "thomsonreuters:wd5:External_Career_Site",
       "enabled": true
     },
     {
@@ -1152,6 +1398,18 @@
       "name": "Toast",
       "source": "greenhouse",
       "board": "toast",
+      "enabled": true
+    },
+    {
+      "name": "Trulioo",
+      "source": "ashby",
+      "board": "trulioo",
+      "enabled": true
+    },
+    {
+      "name": "Tulip",
+      "source": "greenhouse",
+      "board": "tulip",
       "enabled": true
     },
     {
@@ -1221,9 +1479,21 @@
       "enabled": true
     },
     {
+      "name": "Waabi",
+      "source": "lever",
+      "board": "waabi",
+      "enabled": true
+    },
+    {
       "name": "Warp",
       "source": "ashby",
       "board": "warp",
+      "enabled": true
+    },
+    {
+      "name": "Wattpad",
+      "source": "lever",
+      "board": "wattpad",
       "enabled": true
     },
     {
@@ -1236,6 +1506,12 @@
       "name": "Wealthfront",
       "source": "lever",
       "board": "wealthfront",
+      "enabled": true
+    },
+    {
+      "name": "Wealthsimple",
+      "source": "ashby",
+      "board": "wealthsimple",
       "enabled": true
     },
     {
@@ -1260,6 +1536,12 @@
       "name": "Zapier",
       "source": "ashby",
       "board": "zapier",
+      "enabled": true
+    },
+    {
+      "name": "Zensurance",
+      "source": "lever",
+      "board": "zensurance",
       "enabled": true
     },
     {
