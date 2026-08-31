@@ -245,6 +245,48 @@ def cmd_disable(args) -> None:
     COMPANIES_PATH.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
 
 
+def cmd_send(args) -> None:
+    """Scan live and push matching postings to Telegram now, already-seen or not."""
+    conn = store.connect()
+    bot = None if args.dry_run else bot_from_env()
+    result = scan(conn, record=False)
+    jobs = result.all_matched or []
+
+    if args.canada:
+        jobs = [j for j in jobs if location_region(j.location) in ("ca", "na")]
+    if args.company:
+        jobs = [j for j in jobs if args.company.lower() in j.company.lower()]
+
+    # all_matched is pre-dedupe, so the same role from two feeds appears twice
+    unique, seen = [], set()
+    for job in jobs:
+        if job.dupe_key in seen:
+            continue
+        seen.add(job.dupe_key)
+        unique.append(job)
+    jobs = unique
+
+    if not jobs:
+        print("nothing matched that filter")
+        return
+    print(f"sending {len(jobs)} posting(s)...")
+    for job in jobs:
+        text = telegram.job_message(job, location_region(job.location))
+        markup = telegram.job_keyboard(job.key, job.url)
+        if args.dry_run:
+            print(f"\n--- would send ---\n{text}")
+            continue
+        try:
+            res = bot.send(text, reply_markup=markup)
+            store.mark_notified(conn, job.key, res.get("message_id"))
+            print(f"  sent: {job}")
+        except FetchError as exc:
+            print(f"  ! failed for {job}: {exc}")
+        time.sleep(1.2)
+    if not args.dry_run:
+        print(f"done - {len(jobs)} sent to Telegram")
+
+
 def cmd_setup(args) -> None:
     """Guided first-time setup: verify the token, find the chat id, save it."""
     token = config.get("TELEGRAM_BOT_TOKEN")
@@ -367,6 +409,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--any-location", action="store_true")
     p.set_defaults(func=cmd_watch)
+
+    p = sub.add_parser("send", help="push matching live postings to Telegram now")
+    p.add_argument("--canada", action="store_true", help="only Canadian postings")
+    p.add_argument("--company", help="only this company")
+    p.add_argument("--dry-run", action="store_true")
+    p.set_defaults(func=cmd_send)
 
     p = sub.add_parser("list", help="show tracked postings")
     p.add_argument("--status", help="comma-separated: new,saved,applied,interview,offer,rejected,ignored")

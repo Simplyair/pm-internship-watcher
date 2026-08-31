@@ -21,6 +21,7 @@ SEND_DELAY = 1.2            # seconds between sends; Telegram throttles ~1/s
 class ScanResult:
     new_jobs: list
     matched: int = 0
+    all_matched: list = None
     scanned_boards: int = 0
     failed_boards: list = None
     closed: int = 0
@@ -78,7 +79,7 @@ def scan(conn, *, workers: int = 12, require_location: bool = True,
                 continue
             seen_dupes.add(job.dupe_key)
             preview.append(job)
-        return ScanResult(new_jobs=preview,
+        return ScanResult(new_jobs=preview, all_matched=all_matched,
                           matched=len(all_matched),
                           scanned_boards=len(companies) - len(failed),
                           failed_boards=failed, closed=0, seeded=not known)
@@ -93,7 +94,8 @@ def scan(conn, *, workers: int = 12, require_location: bool = True,
             closed_keys.append(key)
     closed = store.mark_closed(conn, closed_keys)
 
-    return ScanResult(new_jobs=new_jobs, matched=len(all_matched),
+    return ScanResult(new_jobs=new_jobs, all_matched=all_matched,
+                      matched=len(all_matched),
                       scanned_boards=len(companies) - len(failed),
                       failed_boards=failed, closed=closed, seeded=was_empty)
 
