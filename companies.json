@@ -1083,6 +1083,12 @@
       "enabled": true
     },
     {
+      "name": "RBC (students)",
+      "source": "workday",
+      "board": "rbc:wd3:ExternalPrivatePostingStudents",
+      "enabled": true
+    },
+    {
       "name": "Reddit",
       "source": "greenhouse",
       "board": "reddit",
