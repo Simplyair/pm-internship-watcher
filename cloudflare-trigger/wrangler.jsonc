@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pm-internship-trigger",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-15",
+
+  // GitHub's own cron drops roughly 7 of every 8 scheduled runs, so the clock
+  // lives here instead. Cloudflare fires on time; each tick asks GitHub to run
+  // the workflow via workflow_dispatch, which is not throttled.
+  //
+  // Budget: 1,716 + 330 + 113 = ~2,159 dispatches/month. With the workflow's
+  // own 8-hourly safety net that is ~2,250 of the 3,000 GitHub Actions minutes
+  // included with GitHub Pro. Free plan allows 5 crons per ACCOUNT; this uses 4
+  // (Cloudflare rejects "0,6" for day-of-week, so weekends are split SAT/SUN).
+  "triggers": {
+    "crons": [
+      "*/10 11-23 * * 1-5",   // every 10 min, Mon-Fri 7am-8pm ET (peak posting)
+      "0 0-10 * * *",         // hourly overnight, every day
+      "0 11-23 * * SAT",      // hourly Saturday daytime
+      "0 11-23 * * SUN"       // hourly Sunday daytime
+    ]
+  },
+
+  "vars": {
+    "GITHUB_REPO": "Simplyair/pm-internship-watcher",
+    "WORKFLOW_FILE": "watch.yml",
+    "GIT_REF": "main"
+  },
+
+  "observability": { "enabled": true }
+}

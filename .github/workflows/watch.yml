@@ -8,17 +8,18 @@
 #        launchctl bootout gui/$(id -u)/com.pmintern.watcher
 #
 # Budget: GitHub bills each job rounded UP to the nearest minute, so run
-# COUNT is what costs money, not run length. Polling hard only when postings
-# actually appear (US business hours) keeps this near 1,590 runs/month --
-# about 53% of the 3,000 minutes GitHub Pro / Student Pack includes.
-# A flat every-15-minutes schedule would be 2,880 runs, or 96%.
+# COUNT is the cost, not run length. Cloudflare dispatches ~2,159 times a
+# month and this safety net adds ~90, for ~2,250 of the 3,000 minutes that
+# GitHub Pro / Student Pack includes -- about 75%.
 name: PM internship watch
 
 on:
+  # The real clock lives in cloudflare-trigger/, which calls workflow_dispatch.
+  # GitHub's own scheduler was measured delivering ~1 run per 8 requested, with
+  # gaps up to 7 hours, so this cron is only a safety net for the case where
+  # the Worker stops firing.
   schedule:
-    - cron: "*/15 11-23 * * 1-5"   # every 15 min, Mon-Fri 7am-8pm ET (peak posting)
-    - cron: "0 0-10 * * *"         # hourly overnight, every day
-    - cron: "0 11-23 * * 0,6"      # hourly on weekends
+    - cron: "0 */8 * * *"
   workflow_dispatch:
 
 concurrency:
