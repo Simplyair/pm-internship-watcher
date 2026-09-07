@@ -285,12 +285,6 @@
       "enabled": true
     },
     {
-      "name": "ClickHouse",
-      "source": "greenhouse",
-      "board": "clickhouse",
-      "enabled": true
-    },
-    {
       "name": "ClickUp",
       "source": "ashby",
       "board": "clickup",
@@ -744,12 +738,6 @@
       "name": "Maple",
       "source": "ashby",
       "board": "maple",
-      "enabled": true
-    },
-    {
-      "name": "Marqeta",
-      "source": "greenhouse",
-      "board": "marqeta",
       "enabled": true
     },
     {
