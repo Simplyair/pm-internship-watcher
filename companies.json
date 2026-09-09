@@ -6,7 +6,8 @@
     "ashby",
     "workday",
     "simplify",
-    "rss"
+    "rss",
+    "jobsitemap"
   ],
   "companies": [
     {
@@ -193,6 +194,12 @@
       "name": "BMO",
       "source": "workday",
       "board": "bmo:wd3:External",
+      "enabled": true
+    },
+    {
+      "name": "Boeing",
+      "source": "workday",
+      "board": "boeing:wd1:External_Careers",
       "enabled": true
     },
     {
@@ -1369,6 +1376,12 @@
       "name": "TD Bank",
       "source": "workday",
       "board": "td:wd3:TD_Bank_Careers",
+      "enabled": true
+    },
+    {
+      "name": "TELUS",
+      "source": "jobsitemap",
+      "board": "https://careers.telus.com/sitemap.xml",
       "enabled": true
     },
     {
