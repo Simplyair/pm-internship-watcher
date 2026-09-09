@@ -1,1 +1,8 @@
-# No third-party dependencies. Python 3.9+ standard library only.
+# No third-party dependencies required. Python 3.9+ standard library only.
+#
+# Optional: certifi
+#   Some employer career sites (e.g. jobs.scotiabank.com) chain to roots that
+#   macOS's /etc/ssl/cert.pem does not carry, so Python fails to verify them
+#   while curl succeeds. Installing certifi fixes it; pmintern/http.py prefers
+#   it automatically when present. GitHub runners already carry these roots.
+#     python3 -m pip install certifi

@@ -5,7 +5,8 @@
     "lever",
     "ashby",
     "workday",
-    "simplify"
+    "simplify",
+    "rss"
   ],
   "companies": [
     {
@@ -1137,6 +1138,12 @@
       "enabled": true
     },
     {
+      "name": "Rogers",
+      "source": "rss",
+      "board": "https://jobs.rogers.com/sitemap.xml",
+      "enabled": true
+    },
+    {
       "name": "Rubrik",
       "source": "greenhouse",
       "board": "rubrik",
@@ -1182,6 +1189,12 @@
       "name": "Scale AI",
       "source": "greenhouse",
       "board": "scaleai",
+      "enabled": true
+    },
+    {
+      "name": "Scotiabank",
+      "source": "rss",
+      "board": "https://jobs.scotiabank.com/sitemap.xml",
       "enabled": true
     },
     {

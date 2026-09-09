@@ -1,8 +1,10 @@
 """Small JSON-over-HTTP helper built on urllib (no third-party deps)."""
 from __future__ import annotations
 
+import gzip
 import json
 import os
+import pathlib
 import ssl
 import time
 import urllib.error
@@ -98,21 +100,42 @@ def post_json(url: str, payload: dict, timeout: int = 25, retries: int = 2):
     raise FetchError(f"{type(last).__name__}: {last} for {url}")
 
 
-def get_json_cached(url: str, cache_path, timeout: int = 45, retries: int = 2):
+def get_text(url: str, timeout: int = 90, retries: int = 2) -> str:
+    """Plain GET returning decoded text, with gzip handling."""
+    last: Exception | None = None
+    for attempt in range(retries + 1):
+        req = urllib.request.Request(url, headers={
+            "User-Agent": USER_AGENT, "Accept-Encoding": "gzip"})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout, context=ssl_context()) as resp:
+                raw = resp.read()
+                if resp.headers.get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                return raw.decode("utf-8", "replace")
+        except urllib.error.HTTPError as exc:
+            if exc.code in (404, 410):
+                raise FetchError(f"HTTP {exc.code} for {url}") from exc
+            last = exc
+        except (urllib.error.URLError, TimeoutError) as exc:
+            last = exc
+        if attempt < retries:
+            time.sleep(1.5 * (attempt + 1))
+    raise FetchError(f"{type(last).__name__}: {last} for {url}")
+
+
+def get_text_cached(url: str, cache_path, timeout: int = 60, retries: int = 2) -> str:
     """GET with ETag revalidation, backed by an on-disk cache.
 
     Large feeds re-send megabytes on every poll otherwise. A 304 costs a few
-    hundred bytes and lets us poll often without hammering the host.
+    hundred bytes and lets us reuse the copy already on disk.
     """
-    import pathlib
-
     cache_path = pathlib.Path(cache_path)
     meta_path = cache_path.with_suffix(cache_path.suffix + ".etag")
     etag = ""
     if cache_path.exists() and meta_path.exists():
         etag = meta_path.read_text(encoding="utf-8").strip()
 
-    headers = {"User-Agent": USER_AGENT, "Accept": "application/json"}
+    headers = {"User-Agent": USER_AGENT, "Accept-Encoding": "gzip"}
     if etag:
         headers["If-None-Match"] = etag
 
@@ -121,25 +144,30 @@ def get_json_cached(url: str, cache_path, timeout: int = 45, retries: int = 2):
         req = urllib.request.Request(url, headers=headers)
         try:
             with urllib.request.urlopen(req, timeout=timeout, context=ssl_context()) as resp:
-                body = resp.read()
+                raw = resp.read()
+                if resp.headers.get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
                 new_etag = resp.headers.get("ETag", "")
                 cache_path.parent.mkdir(parents=True, exist_ok=True)
-                cache_path.write_bytes(body)
+                cache_path.write_bytes(raw)
                 if new_etag:
                     meta_path.write_text(new_etag, encoding="utf-8")
-                return json.loads(body.decode("utf-8", "replace"))
+                return raw.decode("utf-8", "replace")
         except urllib.error.HTTPError as exc:
             if exc.code == 304 and cache_path.exists():
-                return json.loads(cache_path.read_text(encoding="utf-8", errors="replace"))
-            if exc.code in (404, 410):
-                raise FetchError(f"HTTP {exc.code} for {url}") from exc
+                return cache_path.read_text(encoding="utf-8", errors="replace")
             last = exc
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, TimeoutError) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
 
-    # Network is down but we have a usable copy: better stale than a failed scan.
+    # A stale copy beats losing a whole source to one bad fetch.
     if cache_path.exists():
-        return json.loads(cache_path.read_text(encoding="utf-8", errors="replace"))
+        return cache_path.read_text(encoding="utf-8", errors="replace")
     raise FetchError(f"{type(last).__name__}: {last} for {url}")
+
+
+def get_json_cached(url: str, cache_path, timeout: int = 45, retries: int = 2):
+    """ETag-revalidated GET that parses the cached body as JSON."""
+    return json.loads(get_text_cached(url, cache_path, timeout=timeout, retries=retries))
