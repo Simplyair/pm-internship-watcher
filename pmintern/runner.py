@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from . import store, telegram
 from .config import COMPANIES_PATH
 from .http import FetchError
-from .match import location_region, matches
+from .match import location_region, matches, matches_watchlist
 from .models import Job
 from .sources import fetch
 
@@ -35,6 +35,13 @@ def load_companies(path=COMPANIES_PATH) -> list[dict]:
     return [c for c in doc.get("companies", []) if c.get("enabled", True)]
 
 
+def load_watchlist(path=COMPANIES_PATH) -> list[dict]:
+    """Per-company widening rules; see companies.json."""
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding="utf-8")).get("watchlist", [])
+
+
 def _scan_board(company: dict) -> tuple[dict, list[Job] | None, str]:
     try:
         jobs = fetch(company["source"], company["board"], company["name"])
@@ -46,6 +53,7 @@ def _scan_board(company: dict) -> tuple[dict, list[Job] | None, str]:
 def scan(conn, *, workers: int = 12, require_location: bool = True,
          verbose: bool = False, record: bool = True) -> ScanResult:
     companies = load_companies()
+    watchlist = load_watchlist()
     was_empty = store.stats(conn)["_total"] == 0
     failed: list[tuple[str, str]] = []
     all_matched: list[Job] = []
@@ -61,7 +69,9 @@ def scan(conn, *, workers: int = 12, require_location: bool = True,
                     print(f"  ! {company['name']}: {error}")
                 continue
             store.record_board(conn, source, board, company["name"], True)
-            hits = [j for j in jobs if matches(j, require_location=require_location)]
+            hits = [j for j in jobs
+                    if matches(j, require_location=require_location)
+                    or matches_watchlist(j, watchlist)]
             seen_by_board[(source, board)] = {j.key for j in hits}
             all_matched.extend(hits)
             if verbose and hits:

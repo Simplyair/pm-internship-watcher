@@ -1576,5 +1576,15 @@
       "board": "zyngacareers",
       "enabled": true
     }
+  ],
+  "_watchlist_comment": "Per-company widening, layered on top of the default product-management-only filter. Never removes a default match; only adds. regions: ca | us | na (omit for anywhere).",
+  "watchlist": [
+    {
+      "company": "Microsoft",
+      "regions": [
+        "ca"
+      ],
+      "note": "PM plus product-adjacent (ops, analyst, program manager, marketing), Canada only"
+    }
   ]
 }

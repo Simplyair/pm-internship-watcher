@@ -31,9 +31,26 @@ SOFT_PM = (
     r"\bproduct co-?op\b",
 )
 
+# Product-adjacent roles: not product management proper, but the same career
+# track and worth seeing for named companies. "Program Manager" matters most --
+# at Microsoft that title *is* the product role.
+PRODUCT_ADJACENT = (
+    r"\bprogram manage(?:r|ment)\b",
+    r"\btechnical program manager\b",
+    r"\bbusiness program manager\b",
+    r"\bproduct operations?\b",
+    r"\bproduct analyst\b",
+    r"\bproduct analytics\b",
+    r"\bproduct strategy\b",
+    r"\bproduct marketing\b",
+    r"\bproduct planner\b",
+    r"\bproduct specialist\b",
+    r"\bproduct development\b",
+)
+
 # Roles that contain "product" but are not product management. Checked first,
 # so these veto even a strong match ("Product Marketing Manager Intern").
-NOT_PM = (
+NOT_PM_HARD = (
     r"\bproduct marketing\b",
     r"\bproduct design(?:er)?\b",
     r"\bproduct engineer",
@@ -178,7 +195,7 @@ def is_pm_title(title: str) -> bool:
     development, product operations, product analyst -- is not PM.
     """
     low = title.lower()
-    if _matches_any(low, NOT_PM):
+    if _matches_any(low, NOT_PM_HARD):
         return False
     if _matches_any(low, STRONG_PM):
         return True
@@ -238,3 +255,62 @@ def matches(job, *, require_location: bool = True) -> bool:
     if require_location and not is_north_america(job.location):
         return False
     return True
+
+
+# The adjacency path has its own, narrower veto. Engineering and design are
+# genuinely different tracks, but marketing / operations / analyst ARE the
+# adjacency being asked for, so they must not be vetoed here.
+NOT_ADJACENT = (
+    r"\bproduct engineer",
+    r"\bproduct development engineer",
+    r"\bproduct design(?:er)?\b",
+    r"\bproduct security\b",
+    r"\bproduct quality\b",
+    r"\bproduct counsel\b",
+    r"\bproduction\b",
+    r"\b(?:full ?stack|front ?end|back ?end|hardware|mechanical|electrical|systems?|"
+    r"test|quality|validation|manufacturing|process|packaging|firmware|asic|silicon)"
+    r"\s+engineer",
+    r"\bengineering intern",
+    r"\bengineer intern",
+    r"\bsoftware engineer",
+    r"\bdata scientist\b",
+    r"\bdata science\b",
+    r"\bdata engineer\b",
+    r"\bui/ux\b",
+    r"\bux design",
+    r"\bgraphic design",
+    r"\brecruit",
+)
+
+
+def is_adjacent_title(title: str) -> bool:
+    """Product management *or* the roles next to it (ops, analyst, program)."""
+    low = title.lower()
+    if _matches_any(low, NOT_ADJACENT):
+        return False
+    return (_matches_any(low, STRONG_PM) or _matches_any(low, SOFT_PM)
+            or _matches_any(low, PRODUCT_ADJACENT))
+
+
+def matches_watchlist(job, watchlist) -> bool:
+    """Extra, per-company widening layered on top of the default filter.
+
+    Each entry is {"company": ..., "regions": [...]}. For a named company the
+    net widens to product-adjacent titles, optionally only in given regions.
+    This is strictly additive: it never removes a default match.
+    """
+    if not watchlist:
+        return False
+    company = (job.company or "").lower()
+    for entry in watchlist:
+        name = (entry.get("company") or "").lower()
+        if not name or name not in company:
+            continue
+        if not is_internship_title(job.title) or not is_adjacent_title(job.title):
+            continue
+        regions = entry.get("regions")
+        if regions and location_region(job.location) not in set(regions) | {"na"}:
+            continue
+        return True
+    return False
