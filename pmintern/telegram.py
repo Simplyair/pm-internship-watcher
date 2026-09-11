@@ -92,15 +92,20 @@ def esc(text: str) -> str:
 
 
 def job_message(job, region: str = "") -> str:
-    """Format one posting as an HTML Telegram message."""
-    lines = [f"<b>{esc(job.company)}</b>", esc(job.title)]
-    meta = []
+    """Format one posting as an HTML Telegram message.
+
+    Canadian roles lead with a banner line: Telegram's push preview shows the
+    first line of the message, so this is visible on the lock screen without
+    opening the app.
+    """
+    lines = []
+    if region == "ca":
+        lines.append("\U0001F1E8\U0001F1E6 <b>CANADA</b>")
+    elif region == "na":
+        lines.append("\U0001F1E8\U0001F1E6 <b>CANADA / US</b>")
+    lines += [f"<b>{esc(job.company)}</b>", esc(job.title)]
     if job.location:
-        meta.append(esc(job.location))
-    if region in ("ca", "na"):
-        meta.append("CA")
-    if meta:
-        lines.append(" | ".join(meta))
+        lines.append(esc(job.location))
     if job.posted_at:
         lines.append(f"posted {esc(job.posted_at[:10])}")
     if job.url:

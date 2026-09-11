@@ -132,6 +132,10 @@ def notify(conn, bot: telegram.Telegram, result: ScanResult, dry_run: bool = Fal
                 store.mark_notified(conn, job.key, None)
         return len(jobs)
 
+    # Canadian roles go out first so they sit at the top of the notification
+    # stack rather than buried under US postings.
+    jobs = sorted(jobs, key=lambda j: 0 if location_region(j.location) in ("ca", "na") else 1)
+
     sent = 0
     for job in jobs[:MAX_ALERTS_PER_CYCLE]:
         text = telegram.job_message(job, location_region(job.location))
@@ -162,11 +166,17 @@ def notify(conn, bot: telegram.Telegram, result: ScanResult, dry_run: bool = Fal
 
 
 def _digest(jobs: list[Job], header: str) -> str:
-    lines = [header, ""]
-    for job in jobs[:40]:
+    ordered = sorted(jobs, key=lambda j: 0 if location_region(j.location) in ("ca", "na") else 1)
+    canada = sum(1 for j in ordered if location_region(j.location) in ("ca", "na"))
+    lines = [header]
+    if canada:
+        lines.append(f"\U0001F1E8\U0001F1E6 {canada} in Canada, listed first")
+    lines.append("")
+    for job in ordered[:40]:
+        flag = "\U0001F1E8\U0001F1E6 " if location_region(job.location) in ("ca", "na") else ""
         label = telegram.esc(f"{job.company} - {job.title}")
-        lines.append(f'- <a href="{telegram.esc(job.url)}">{label}</a>'
-                     if job.url else f"- {label}")
+        lines.append(f'- {flag}<a href="{telegram.esc(job.url)}">{label}</a>'
+                     if job.url else f"- {flag}{label}")
     if len(jobs) > 40:
         lines.append(f"\n...and {len(jobs) - 40} more. Run: python3 cli.py list")
     return "\n".join(lines)
