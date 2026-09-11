@@ -296,9 +296,11 @@ def is_adjacent_title(title: str) -> bool:
 def matches_watchlist(job, watchlist) -> bool:
     """Extra, per-company widening layered on top of the default filter.
 
-    Each entry is {"company": ..., "regions": [...]}. For a named company the
-    net widens to product-adjacent titles, optionally only in given regions.
-    This is strictly additive: it never removes a default match.
+    Each entry is {"company": ..., "regions": [...], "titles": [...]}.
+    With "titles" the entry matches those keywords instead of the
+    product-adjacent set -- for programs that carry no product wording at all,
+    like RBI's "Generalist" internship. Strictly additive: never removes a
+    default match.
     """
     if not watchlist:
         return False
@@ -307,7 +309,14 @@ def matches_watchlist(job, watchlist) -> bool:
         name = (entry.get("company") or "").lower()
         if not name or name not in company:
             continue
-        if not is_internship_title(job.title) or not is_adjacent_title(job.title):
+        if not is_internship_title(job.title):
+            continue
+        keywords = entry.get("titles")
+        if keywords:
+            low = job.title.lower()
+            if not any(k.lower() in low for k in keywords):
+                continue
+        elif not is_adjacent_title(job.title):
             continue
         regions = entry.get("regions")
         if regions and location_region(job.location) not in set(regions) | {"na"}:

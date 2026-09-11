@@ -114,6 +114,11 @@ def notify(conn, bot: telegram.Telegram, result: ScanResult, dry_run: bool = Fal
            digest: bool = False) -> int:
     """Send alerts for new jobs. First run sends one digest instead of a flood."""
     jobs = result.new_jobs
+    # If the CI cache is ever evicted the database restarts empty, but decisions
+    # already made from Telegram must not be re-alerted.
+    decided = store.decided_keys()
+    if decided:
+        jobs = [j for j in jobs if j.key not in decided]
     if not jobs:
         return 0
 

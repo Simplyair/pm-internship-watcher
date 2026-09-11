@@ -743,6 +743,12 @@
       "enabled": true
     },
     {
+      "name": "Manulife",
+      "source": "workday",
+      "board": "manulife:wd3:MFCJH_Jobs",
+      "enabled": true
+    },
+    {
       "name": "Maple",
       "source": "ashby",
       "board": "maple",
@@ -1106,6 +1112,12 @@
       "name": "Replit",
       "source": "ashby",
       "board": "replit",
+      "enabled": true
+    },
+    {
+      "name": "Restaurant Brands International",
+      "source": "jobsitemap",
+      "board": "https://careers.rbi.com/sitemap.xml",
       "enabled": true
     },
     {
@@ -1585,6 +1597,37 @@
         "ca"
       ],
       "note": "PM plus product-adjacent (ops, analyst, program manager, marketing), Canada only"
+    },
+    {
+      "company": "Restaurant Brands International",
+      "regions": [
+        "ca"
+      ],
+      "titles": [
+        "generalist",
+        "undergraduate",
+        "internship program",
+        "summer internship",
+        "product",
+        "program manager",
+        "strategy",
+        "rotational"
+      ],
+      "note": "RBI Generalist programme carries no product wording in the title"
+    },
+    {
+      "company": "Manulife",
+      "regions": [
+        "ca"
+      ],
+      "titles": [
+        "product",
+        "operations",
+        "marketing",
+        "program manager",
+        "strategy"
+      ],
+      "note": "user asked for operations and marketing internships too"
     }
   ]
 }

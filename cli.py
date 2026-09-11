@@ -54,6 +54,23 @@ def cmd_scan(args) -> None:
     conn = store.connect()
     dry = args.dry_run or config.get_bool("DRY_RUN")
     started = time.time()
+
+    # Telegram button taps arrive as callback queries and are only visible via
+    # getUpdates. The cloud runs this command, so without this the buttons do
+    # nothing at all.
+    bot = None
+    if not dry:
+        try:
+            bot = bot_from_env()
+            store.import_tracker(conn)
+            acted = process_callbacks(conn, bot)
+            if acted:
+                print(f"applied {acted} button tap(s)")
+        except SystemExit:
+            raise
+        except FetchError as exc:
+            print(f"  ! could not read Telegram updates: {exc}")
+
     result = scan(conn, require_location=not args.any_location,
                   verbose=args.verbose, record=not dry)
 
@@ -66,15 +83,16 @@ def cmd_scan(args) -> None:
     elif result.failed_boards:
         print(f"  ({len(result.failed_boards)} boards unreachable; run `health` for detail)")
 
-    if not result.new_jobs:
-        return
-    if dry:
-        notify(conn, None, result, dry_run=True, digest=args.digest)  # type: ignore[arg-type]
-        print(f"\n[dry run] {len(result.new_jobs)} alert(s) not sent")
-        return
-    bot = bot_from_env()
-    sent = notify(conn, bot, result, digest=args.digest)
-    print(f"sent {sent} alert(s) to Telegram")
+    if result.new_jobs:
+        if dry:
+            notify(conn, None, result, dry_run=True, digest=args.digest)  # type: ignore[arg-type]
+            print(f"\n[dry run] {len(result.new_jobs)} alert(s) not sent")
+        else:
+            sent = notify(conn, bot or bot_from_env(), result, digest=args.digest)
+            print(f"sent {sent} alert(s) to Telegram")
+
+    if not dry and store.export_tracker(conn):
+        print("tracker.json updated")
 
 
 def cmd_watch(args) -> None:

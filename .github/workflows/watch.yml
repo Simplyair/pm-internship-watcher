@@ -32,6 +32,8 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write     # the tracker commit needs push access
     timeout-minutes: 3     # a hung run must never eat the monthly budget
     steps:
       - uses: actions/checkout@v4
@@ -57,6 +59,21 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python3 cli.py scan
+
+      # Button taps change tracker.json. Committing it makes those decisions
+      # durable (the cache can be evicted) and lets `git pull` sync them to a
+      # laptop. It also counts as repo activity, which keeps GitHub from
+      # disabling the schedule after 60 days.
+      - name: Persist tracker decisions
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain tracker.json)" ]; then
+            git config user.name "pm-internship-watcher"
+            git config user.email "actions@users.noreply.github.com"
+            git add tracker.json
+            git commit -m "Update tracker from Telegram [skip ci]"
+            git push
+          fi
 
       - name: Save state
         uses: actions/cache/save@v4

@@ -230,3 +230,64 @@ def unhealthy_boards(conn, min_fails: int = 3):
         "SELECT * FROM board_health WHERE fails >= ? ORDER BY fails DESC",
         (min_fails,),
     ).fetchall()
+
+
+TRACKER_PATH = DB_PATH.parent / "tracker.json"
+
+
+def export_tracker(conn, path=TRACKER_PATH) -> bool:
+    """Write decided postings to tracker.json. Returns True if it changed.
+
+    The cloud database lives in a CI cache that can be evicted, so decisions
+    made from Telegram buttons are mirrored into a small file that is committed
+    to the repo. That makes them durable and lets `git pull` sync them to a
+    laptop.
+    """
+    import json as _json
+    rows = conn.execute(
+        "SELECT key, company, title, url, location, status, status_at, notes "
+        "FROM jobs WHERE status != 'new' OR notes != '' ORDER BY status_at"
+    ).fetchall()
+    data = {r["key"]: {k: r[k] for k in
+                       ("company", "title", "url", "location", "status", "status_at", "notes")}
+            for r in rows}
+    text = _json.dumps(data, indent=2, sort_keys=True) + "\n"
+    old = path.read_text(encoding="utf-8") if path.exists() else ""
+    if text == old:
+        return False
+    path.write_text(text, encoding="utf-8")
+    return True
+
+
+def import_tracker(conn, path=TRACKER_PATH) -> int:
+    """Restore statuses from tracker.json onto rows that exist in the database."""
+    import json as _json
+    if not path.exists():
+        return 0
+    try:
+        data = _json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return 0
+    applied = 0
+    for key, row in data.items():
+        cur = conn.execute(
+            "UPDATE jobs SET status = ?, status_at = ?, notes = ? "
+            "WHERE key = ? AND status = 'new' AND ? != 'new'",
+            (row.get("status", "new"), row.get("status_at", ""), row.get("notes", ""),
+             key, row.get("status", "new")))
+        applied += cur.rowcount
+    conn.commit()
+    return applied
+
+
+def decided_keys(path=TRACKER_PATH) -> set:
+    """Keys the user has already ruled on, so a cache wipe cannot re-alert them."""
+    import json as _json
+    if not path.exists():
+        return set()
+    try:
+        data = _json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return set()
+    return {k for k, v in data.items()
+            if v.get("status") in ("applied", "ignored", "rejected", "offer", "interview")}
