@@ -1628,6 +1628,25 @@
         "strategy"
       ],
       "note": "user asked for operations and marketing internships too"
+    },
+    {
+      "company": "Zynga",
+      "titles": [
+        "rotational",
+        "associate product manager",
+        "apm",
+        "university",
+        "new grad",
+        "new graduate",
+        "graduate program",
+        "early career",
+        "product management intern",
+        "product manager intern",
+        "product intern",
+        "emerging talent"
+      ],
+      "require_internship": false,
+      "note": "rotational FT programme carries no internship wording; expected to open 2026-09-14"
     }
   ]
 }

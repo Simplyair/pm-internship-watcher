@@ -72,7 +72,7 @@ def cmd_scan(args) -> None:
             print(f"  ! could not read Telegram updates: {exc}")
 
     result = scan(conn, require_location=not args.any_location,
-                  verbose=args.verbose, record=not dry)
+                  verbose=args.verbose, record=not dry, only=args.only)
 
     print(f"scanned {result.scanned_boards} boards in {time.time()-started:.0f}s | "
           f"{result.matched} matching postings live | {len(result.new_jobs)} new"
@@ -104,7 +104,7 @@ def cmd_watch(args) -> None:
           f"every {minutes} min. Ctrl-C to stop.")
     while True:
         try:
-            result = scan(conn, require_location=not args.any_location)
+            result = scan(conn, require_location=not args.any_location, only=args.only)
             stamp = time.strftime("%H:%M")
             line = (f"[{stamp}] {result.matched} live | {len(result.new_jobs)} new"
                     + (f" | {result.closed} closed" if result.closed else ""))
@@ -420,12 +420,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--any-location", action="store_true", help="do not filter to US/Canada")
     p.add_argument("--digest", action="store_true",
                    help="send one summary message instead of one alert per posting")
+    p.add_argument("--only", metavar="COMPANY",
+                   help="scan just one company (fast, for watching a known drop)")
     p.set_defaults(func=cmd_scan)
 
     p = sub.add_parser("watch", help="scan on a loop")
     p.add_argument("--every", type=int, metavar="MIN", help="minutes between scans")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--any-location", action="store_true")
+    p.add_argument("--only", metavar="COMPANY", help="watch just one company")
     p.set_defaults(func=cmd_watch)
 
     p = sub.add_parser("send", help="push matching live postings to Telegram now")

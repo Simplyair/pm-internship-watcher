@@ -296,7 +296,9 @@ def is_adjacent_title(title: str) -> bool:
 def matches_watchlist(job, watchlist) -> bool:
     """Extra, per-company widening layered on top of the default filter.
 
-    Each entry is {"company": ..., "regions": [...], "titles": [...]}.
+    Each entry is {"company": ..., "regions": [...], "titles": [...],
+    "require_internship": bool}. Set require_internship false for full-time
+    rotational or new-grad programmes, which carry no internship wording.
     With "titles" the entry matches those keywords instead of the
     product-adjacent set -- for programs that carry no product wording at all,
     like RBI's "Generalist" internship. Strictly additive: never removes a
@@ -309,12 +311,21 @@ def matches_watchlist(job, watchlist) -> bool:
         name = (entry.get("company") or "").lower()
         if not name or name not in company:
             continue
-        if not is_internship_title(job.title):
+        # Seniority is always disqualifying, even when the internship
+        # requirement is waived for rotational programmes -- otherwise
+        # "Early Careers Program Lead" (the person who runs it) matches.
+        if _matches_any(job.title.lower(), SENIOR_PATTERNS):
+            continue
+        if entry.get("require_internship", True) and not is_internship_title(job.title):
             continue
         keywords = entry.get("titles")
         if keywords:
             low = job.title.lower()
             if not any(k.lower() in low for k in keywords):
+                continue
+            # Keyword entries still must not drag in engineering or design:
+            # "Software Engineer, New Grad" matches "new grad" otherwise.
+            if _matches_any(low, NOT_ADJACENT):
                 continue
         elif not is_adjacent_title(job.title):
             continue

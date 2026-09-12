@@ -51,8 +51,13 @@ def _scan_board(company: dict) -> tuple[dict, list[Job] | None, str]:
 
 
 def scan(conn, *, workers: int = 12, require_location: bool = True,
-         verbose: bool = False, record: bool = True) -> ScanResult:
+         verbose: bool = False, record: bool = True, only: str | None = None) -> ScanResult:
     companies = load_companies()
+    if only:
+        needle = only.lower()
+        companies = [c for c in companies if needle in c["name"].lower()]
+        if not companies:
+            raise ValueError(f"no tracked company matching {only!r}")
     watchlist = load_watchlist()
     was_empty = store.stats(conn)["_total"] == 0
     failed: list[tuple[str, str]] = []
