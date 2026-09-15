@@ -161,6 +161,12 @@
       "enabled": true
     },
     {
+      "name": "Betterment (campus)",
+      "source": "greenhouse",
+      "board": "bettermentcampusrecruiting",
+      "enabled": true
+    },
+    {
       "name": "Binance",
       "source": "lever",
       "board": "binance",
@@ -662,6 +668,12 @@
       "name": "Klaviyo",
       "source": "greenhouse",
       "board": "klaviyo",
+      "enabled": true
+    },
+    {
+      "name": "Klaviyo (campus)",
+      "source": "greenhouse",
+      "board": "klaviyocampus",
       "enabled": true
     },
     {
@@ -1235,6 +1247,12 @@
       "enabled": true
     },
     {
+      "name": "Sezzle (internships)",
+      "source": "greenhouse",
+      "board": "sezzleinternships",
+      "enabled": true
+    },
+    {
       "name": "Shakepay",
       "source": "greenhouse",
       "board": "shakepay",
@@ -1406,6 +1424,12 @@
       "name": "Tenstorrent",
       "source": "greenhouse",
       "board": "tenstorrent",
+      "enabled": true
+    },
+    {
+      "name": "Tenstorrent (university)",
+      "source": "greenhouse",
+      "board": "tenstorrentuniversity",
       "enabled": true
     },
     {
