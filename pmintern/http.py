@@ -70,7 +70,7 @@ def get_json(url: str, timeout: int = 25, retries: int = 2):
             if exc.code in (404, 410):
                 raise FetchError(f"HTTP {exc.code} for {url}") from exc
             last = exc
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, OSError, json.JSONDecodeError) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
@@ -93,7 +93,7 @@ def post_json(url: str, payload: dict, timeout: int = 25, retries: int = 2):
             # Telegram puts the useful error text in the 4xx body.
             detail = exc.read().decode("utf-8", "replace")[:400]
             raise FetchError(f"HTTP {exc.code}: {detail}") from exc
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, OSError, json.JSONDecodeError) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
@@ -116,7 +116,7 @@ def get_text(url: str, timeout: int = 90, retries: int = 2) -> str:
             if exc.code in (404, 410):
                 raise FetchError(f"HTTP {exc.code} for {url}") from exc
             last = exc
-        except (urllib.error.URLError, TimeoutError) as exc:
+        except (urllib.error.URLError, OSError) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
@@ -157,7 +157,7 @@ def get_text_cached(url: str, cache_path, timeout: int = 60, retries: int = 2) -
             if exc.code == 304 and cache_path.exists():
                 return cache_path.read_text(encoding="utf-8", errors="replace")
             last = exc
-        except (urllib.error.URLError, TimeoutError) as exc:
+        except (urllib.error.URLError, OSError) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))

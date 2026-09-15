@@ -46,11 +46,13 @@ def _scan_board(company: dict) -> tuple[dict, list[Job] | None, str]:
     try:
         jobs = fetch(company["source"], company["board"], company["name"])
         return company, jobs, ""
-    except (FetchError, ValueError) as exc:
-        return company, None, str(exc)[:200]
+    except Exception as exc:  # noqa: BLE001
+        # One board failing -- a reset connection, a changed response shape --
+        # must never abort the scan of the other ~560. Record it and move on.
+        return company, None, f"{type(exc).__name__}: {exc}"[:200]
 
 
-def scan(conn, *, workers: int = 12, require_location: bool = True,
+def scan(conn, *, workers: int = 20, require_location: bool = True,
          verbose: bool = False, record: bool = True, only: str | None = None) -> ScanResult:
     companies = load_companies()
     if only:

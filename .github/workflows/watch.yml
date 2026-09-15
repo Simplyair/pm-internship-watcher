@@ -24,6 +24,11 @@ on:
     - cron: "0 0-10 * * *"         # hourly overnight, daily
     - cron: "0 11-23 * * 0,6"      # hourly weekends
   workflow_dispatch:
+    inputs:
+      digest:
+        description: "Send new postings as one summary message (for backfills)"
+        type: boolean
+        default: false
 
 concurrency:
   group: pm-internship-watch
@@ -34,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write     # the tracker commit needs push access
-    timeout-minutes: 3     # a hung run must never eat the monthly budget
+    timeout-minutes: 10    # ~560 boards take ~2.5 min; still capped so a hang can't run away
     steps:
       - uses: actions/checkout@v4
 
@@ -58,7 +63,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python3 cli.py scan
+        run: python3 cli.py scan ${{ inputs.digest && '--digest' || '' }}
 
       # Button taps change tracker.json. Committing it makes those decisions
       # durable (the cache can be evicted) and lets `git pull` sync them to a
