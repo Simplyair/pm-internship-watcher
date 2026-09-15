@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import gzip
+import http.client
 import contextlib
 import json
 import threading
@@ -112,7 +113,7 @@ def _request_json(req: urllib.request.Request, url: str, timeout: int, retries: 
             if attempt < retries:
                 time.sleep(_backoff(exc, attempt))
             continue
-        except (urllib.error.URLError, OSError, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, OSError, http.client.HTTPException, json.JSONDecodeError) as exc:
             last = exc
         if attempt < retries:
             time.sleep(_backoff(None, attempt))
@@ -150,7 +151,7 @@ def get_text(url: str, timeout: int = 90, retries: int = 2) -> str:
             if exc.code in (404, 410):
                 raise FetchError(f"HTTP {exc.code} for {url}") from exc
             last = exc
-        except (urllib.error.URLError, OSError) as exc:
+        except (urllib.error.URLError, OSError, http.client.HTTPException) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
@@ -191,7 +192,7 @@ def get_text_cached(url: str, cache_path, timeout: int = 60, retries: int = 2) -
             if exc.code == 304 and cache_path.exists():
                 return cache_path.read_text(encoding="utf-8", errors="replace")
             last = exc
-        except (urllib.error.URLError, OSError) as exc:
+        except (urllib.error.URLError, OSError, http.client.HTTPException) as exc:
             last = exc
         if attempt < retries:
             time.sleep(1.5 * (attempt + 1))
