@@ -81,7 +81,14 @@ def cmd_scan(args) -> None:
         for name, err in result.failed_boards:
             print(f"  ! {name}: {err}")
     elif result.failed_boards:
-        print(f"  ({len(result.failed_boards)} boards unreachable; run `health` for detail)")
+        # Grouped by error so CI logs show *why* boards fail, not just how many.
+        groups: dict[str, list[str]] = {}
+        for name, err in result.failed_boards:
+            groups.setdefault(err.split(" for ")[0][:70], []).append(name)
+        print(f"  {len(result.failed_boards)} boards unreachable:")
+        for err, names in sorted(groups.items(), key=lambda kv: -len(kv[1])):
+            print(f"    {len(names):>3}x {err}: {', '.join(names[:6])}"
+                  + (" ..." if len(names) > 6 else ""))
 
     if result.new_jobs:
         if dry:
