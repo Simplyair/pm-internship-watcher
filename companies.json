@@ -1587,6 +1587,12 @@
       "source": "greenhouse",
       "board": "zyngacareers",
       "enabled": true
+    },
+    {
+      "name": "Zynga (early careers)",
+      "source": "greenhouse",
+      "board": "zyngaearlycareers",
+      "enabled": true
     }
   ],
   "_watchlist_comment": "Per-company widening, layered on top of the default product-management-only filter. Never removes a default match; only adds. regions: ca | us | na (omit for anywhere).",

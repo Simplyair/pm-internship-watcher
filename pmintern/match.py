@@ -95,7 +95,12 @@ INTERN_PATTERNS = (
 SENIOR_PATTERNS = (
     r"\bsenior\b", r"\bsr\.?\b", r"\bstaff\b", r"\bprincipal\b",
     r"\bdirector\b", r"\bhead of\b", r"\bvp\b", r"\bvice president\b",
-    r"\blead\b", r"\bmanager, intern", r"\bintern(?:ship)? program manager\b",
+    r"\blead\b",
+    # Must name a programme: a bare "manager, intern" also matches
+    # "Associate Product Manager, Intern" -- the most common PM intern title --
+    # and silently rejected Duolingo's APM internship on the day it opened.
+    r"\bmanager, intern(?:ship)?s? programs?\b",
+    r"\bintern(?:ship)? program manager\b",
 )
 
 # --- location: US / Canada -------------------------------------------------
