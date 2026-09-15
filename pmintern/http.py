@@ -2,7 +2,11 @@
 from __future__ import annotations
 
 import gzip
+import contextlib
 import json
+import threading
+import re
+import random
 import os
 import pathlib
 import ssl
@@ -54,50 +58,80 @@ class FetchError(Exception):
     pass
 
 
-def get_json(url: str, timeout: int = 25, retries: int = 2):
-    """GET a URL and parse JSON. Retries transient failures with backoff."""
+# Hosts that serve many of our boards from shared infrastructure. Workday runs
+# ~200 of them; unthrottled, a cloud runner's shared IP drew HTTP 429 on 59
+# boards in one scan. A per-host gate keeps concurrency polite.
+_HOST_LIMITS = {"myworkdayjobs.com": 6}
+_gates: dict[str, threading.BoundedSemaphore] = {}
+_gates_lock = threading.Lock()
+
+RETRYABLE = (429, 500, 502, 503, 504)
+MAX_BACKOFF = 30
+
+
+def _gate(url: str):
+    host = urllib.parse.urlparse(url).netloc.lower()
+    for suffix, limit in _HOST_LIMITS.items():
+        if host.endswith(suffix):
+            with _gates_lock:
+                return _gates.setdefault(suffix, threading.BoundedSemaphore(limit))
+    return contextlib.nullcontext()
+
+
+def _backoff(exc: urllib.error.HTTPError | None, attempt: int) -> float:
+    """Honour Retry-After when the server sends one; otherwise back off exponentially."""
+    if exc is not None:
+        header = exc.headers.get("Retry-After") if exc.headers else None
+        if header and header.strip().isdigit():
+            return min(float(header), MAX_BACKOFF)
+    return min(2.0 * (2 ** attempt), MAX_BACKOFF) + random.uniform(0, 1)
+
+
+def _detail(exc: urllib.error.HTTPError) -> str:
+    """First line of an error body, with HTML stripped, so logs stay readable."""
+    try:
+        body = exc.read().decode("utf-8", "replace")
+    except Exception:  # noqa: BLE001
+        return ""
+    text = re.sub(r"<[^>]+>", " ", body)
+    return " ".join(text.split())[:160]
+
+
+def _request_json(req: urllib.request.Request, url: str, timeout: int, retries: int,
+                  fail_fast: tuple = (404, 410)):
     last: Exception | None = None
     for attempt in range(retries + 1):
-        req = urllib.request.Request(url, headers={
-            "User-Agent": USER_AGENT,
-            "Accept": "application/json",
-        })
         try:
-            with urllib.request.urlopen(req, timeout=timeout, context=ssl_context()) as resp:
-                return json.loads(resp.read().decode("utf-8", "replace"))
+            with _gate(url):
+                with urllib.request.urlopen(req, timeout=timeout, context=ssl_context()) as resp:
+                    return json.loads(resp.read().decode("utf-8", "replace"))
         except urllib.error.HTTPError as exc:
-            # 404 means the board token is wrong; retrying will not help.
-            if exc.code in (404, 410):
-                raise FetchError(f"HTTP {exc.code} for {url}") from exc
+            if exc.code in fail_fast or exc.code not in RETRYABLE:
+                raise FetchError(f"HTTP {exc.code}: {_detail(exc)}") from exc
             last = exc
+            if attempt < retries:
+                time.sleep(_backoff(exc, attempt))
+            continue
         except (urllib.error.URLError, OSError, json.JSONDecodeError) as exc:
             last = exc
         if attempt < retries:
-            time.sleep(1.5 * (attempt + 1))
-    raise FetchError(f"{type(last).__name__}: {last} for {url}")
+            time.sleep(_backoff(None, attempt))
+    code = f"HTTP {last.code}" if isinstance(last, urllib.error.HTTPError) else type(last).__name__
+    raise FetchError(f"{code} after {retries + 1} attempts")
 
 
-def post_json(url: str, payload: dict, timeout: int = 25, retries: int = 2):
-    """POST JSON and parse the JSON response."""
-    body = json.dumps(payload).encode("utf-8")
-    last: Exception | None = None
-    for attempt in range(retries + 1):
-        req = urllib.request.Request(url, data=body, headers={
-            "User-Agent": USER_AGENT,
-            "Content-Type": "application/json",
-        })
-        try:
-            with urllib.request.urlopen(req, timeout=timeout, context=ssl_context()) as resp:
-                return json.loads(resp.read().decode("utf-8", "replace"))
-        except urllib.error.HTTPError as exc:
-            # Telegram puts the useful error text in the 4xx body.
-            detail = exc.read().decode("utf-8", "replace")[:400]
-            raise FetchError(f"HTTP {exc.code}: {detail}") from exc
-        except (urllib.error.URLError, OSError, json.JSONDecodeError) as exc:
-            last = exc
-        if attempt < retries:
-            time.sleep(1.5 * (attempt + 1))
-    raise FetchError(f"{type(last).__name__}: {last} for {url}")
+def get_json(url: str, timeout: int = 25, retries: int = 4):
+    """GET a URL and parse JSON. Retries throttling and transient failures."""
+    req = urllib.request.Request(url, headers={
+        "User-Agent": USER_AGENT, "Accept": "application/json"})
+    return _request_json(req, url, timeout, retries)
+
+
+def post_json(url: str, payload: dict, timeout: int = 25, retries: int = 4):
+    """POST JSON and parse the JSON response. Retries throttling (429) with backoff."""
+    req = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), headers={
+        "User-Agent": USER_AGENT, "Content-Type": "application/json"})
+    return _request_json(req, url, timeout, retries)
 
 
 def get_text(url: str, timeout: int = 90, retries: int = 2) -> str:
