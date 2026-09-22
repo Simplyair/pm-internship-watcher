@@ -19,10 +19,10 @@ on:
   # ~290 requested runs (median gap 200 min). So we request aggressively and
   # take whatever it gives -- dropped runs cost nothing, and the throttling is
   # what keeps this inside the budget.
+  # Full sweep of all ~675 boards, once a day. Canada is handled separately
+  # and far more often by canada-watch.yml.
   schedule:
-    - cron: "*/5 11-23 * * 1-5"    # every 5 min, Mon-Fri 7am-8pm ET
-    - cron: "0 0-10 * * *"         # hourly overnight, daily
-    - cron: "0 11-23 * * 0,6"      # hourly weekends
+    - cron: "0 13 * * *"     # 09:00 ET daily
   workflow_dispatch:
     inputs:
       digest:

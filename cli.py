@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 import webbrowser
@@ -51,6 +52,9 @@ def resolve_key(conn, prefix: str) -> str:
 # --- commands --------------------------------------------------------------
 
 def cmd_scan(args) -> None:
+    if args.region == "ca":
+        # Lighter per-board search budget for the frequent Canadian pass.
+        os.environ["PMINTERN_FAST"] = "1"
     conn = store.connect()
     dry = args.dry_run or config.get_bool("DRY_RUN")
     started = time.time()
@@ -72,7 +76,8 @@ def cmd_scan(args) -> None:
             print(f"  ! could not read Telegram updates: {exc}")
 
     result = scan(conn, require_location=not args.any_location,
-                  verbose=args.verbose, record=not dry, only=args.only)
+                  verbose=args.verbose, record=not dry, only=args.only,
+                  region=args.region)
 
     print(f"scanned {result.scanned_boards} boards in {time.time()-started:.0f}s | "
           f"{result.matched} matching postings live | {len(result.new_jobs)} new"
@@ -463,6 +468,8 @@ def build_parser() -> argparse.ArgumentParser:
                    help="send one summary message instead of one alert per posting")
     p.add_argument("--only", metavar="COMPANY",
                    help="scan just one company (fast, for watching a known drop)")
+    p.add_argument("--region", choices=["ca"],
+                   help="fast pass: only boards that post in Canada, Canadian roles only")
     p.set_defaults(func=cmd_scan)
 
     p = sub.add_parser("watch", help="scan on a loop")

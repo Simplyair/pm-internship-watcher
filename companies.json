@@ -14,7 +14,8 @@
       "name": "1Password",
       "source": "ashby",
       "board": "1password",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "AAA Club Alliance",
@@ -28,14 +29,16 @@
       "source": "workday",
       "board": "abb:wd3:external_career_page",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "ABC Fitness",
       "source": "workday",
       "board": "abcfinancial:wd5:abcfinancialservices",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Abridge",
@@ -47,7 +50,15 @@
       "name": "Achievers",
       "source": "lever",
       "board": "achievers",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "ACI Worldwide",
+      "source": "oraclehcm",
+      "board": "ebwg.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Acorns",
@@ -74,7 +85,8 @@
       "source": "workday",
       "board": "adobe:wd5:external_experienced",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Adyen",
@@ -86,32 +98,45 @@
       "name": "Affirm",
       "source": "greenhouse",
       "board": "affirm",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Airbnb",
       "source": "greenhouse",
       "board": "airbnb",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Airbyte",
       "source": "ashby",
       "board": "airbyte",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Airgas",
       "source": "workday",
       "board": "airliquidehr:wd3:airgasexternalcareer",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Airtable",
       "source": "greenhouse",
       "board": "airtable",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Akamai Technologies",
+      "source": "oraclehcm",
+      "board": "fa-extu-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Alchemy",
@@ -124,7 +149,8 @@
       "source": "workday",
       "board": "alcon:wd5:careers_alcon",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Alertus Technologies",
@@ -138,27 +164,31 @@
       "source": "workday",
       "board": "allegion:wd5:careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Allied Solutions",
       "source": "workday",
       "board": "alliedsolutions:wd501:Allied_External",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Alloy",
       "source": "lever",
       "board": "alloy",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Allstate Insurance Company",
       "source": "workday",
       "board": "allstate:wd5:allstate_careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "AllTrails",
@@ -171,21 +201,24 @@
       "source": "greenhouse",
       "board": "aloyoga",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "AltaML",
       "source": "lever",
       "board": "altaml",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Altasciences",
       "source": "workday",
       "board": "altasciences:wd1:Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Amber",
@@ -194,17 +227,42 @@
       "enabled": true
     },
     {
+      "name": "American Bureau of Shipping",
+      "source": "oraclehcm",
+      "board": "hbbq.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "American Express",
+      "source": "oraclehcm",
+      "board": "egug.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "American Tower",
+      "source": "oraclehcm",
+      "board": "hdsn.fa.us6.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Amgen",
       "source": "workday",
       "board": "amgen:wd1:careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Amplitude",
       "source": "greenhouse",
       "board": "amplitude",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Anchorage",
@@ -216,7 +274,8 @@
       "name": "Andela",
       "source": "ashby",
       "board": "andela",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Angi",
@@ -228,7 +287,8 @@
       "name": "Anthropic",
       "source": "greenhouse",
       "board": "anthropic",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Apex Fintech Solutions",
@@ -242,7 +302,8 @@
       "source": "greenhouse",
       "board": "appian",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Applied Materials",
@@ -258,11 +319,33 @@
       "enabled": true
     },
     {
+      "name": "Arcadis",
+      "source": "oraclehcm",
+      "board": "ebcs.fa.em2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Arconic",
+      "source": "oraclehcm",
+      "board": "hdnn.fa.us6.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "AriensCo",
       "source": "workday",
       "board": "arienscompany:wd5:external",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Arlington County VA",
+      "source": "oraclehcm",
+      "board": "fa-exkk-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "ARRAY Technologies",
@@ -275,14 +358,16 @@
       "name": "Asana",
       "source": "greenhouse",
       "board": "asana",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "AspenTech",
       "source": "workday",
       "board": "aspentech:wd5:aspentech",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Associated Bank",
@@ -296,7 +381,23 @@
       "source": "workday",
       "board": "assurant:wd1:External_Limited_Posting",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "ATCO",
+      "source": "oraclehcm",
+      "board": "eezy.fa.ca2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Atlantic Health System",
+      "source": "oraclehcm",
+      "board": "erqh.fa.us2.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Attention",
@@ -322,21 +423,32 @@
       "source": "workday",
       "board": "autodesk:wd1:Ext",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Autodesk (uni)",
       "source": "workday",
       "board": "autodesk:wd1:uni",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "AutoZone",
+      "source": "oraclehcm",
+      "board": "egud.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Avnet",
       "source": "workday",
       "board": "avnet:wd1:external",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "AXS",
@@ -364,7 +476,16 @@
       "source": "workday",
       "board": "baxter:wd1:baxter",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "BC Pensions",
+      "source": "oraclehcm",
+      "board": "fa-exby-saasfaprod1.fa.ocs.oraclecloud.com:CX_1013",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Becton Dickinson",
@@ -384,13 +505,23 @@
       "name": "Benchling",
       "source": "ashby",
       "board": "benchling",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Benevity",
       "source": "ashby",
       "board": "benevity",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Berkshire Hathaway Energy",
+      "source": "oraclehcm",
+      "board": "fa-essf-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Betterment",
@@ -403,6 +534,14 @@
       "source": "greenhouse",
       "board": "bettermentcampusrecruiting",
       "enabled": true
+    },
+    {
+      "name": "BGIS",
+      "source": "oraclehcm",
+      "board": "fa-evcg-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "BillionToOne",
@@ -422,7 +561,8 @@
       "source": "workday",
       "board": "biotechne:wd5:Biotechne",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "BitGo",
@@ -431,10 +571,18 @@
       "enabled": true
     },
     {
+      "name": "Black Box",
+      "source": "oraclehcm",
+      "board": "eoje.fa.us2.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Blackbird Interactive",
       "source": "lever",
       "board": "blackbirdinteractive",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "BlackRock",
@@ -464,6 +612,20 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Blue Cross Blue Shield of Michigan",
+      "source": "oraclehcm",
+      "board": "ejko.fa.us2.oraclecloud.com:CX_3",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Blue Shield of California",
+      "source": "oraclehcm",
+      "board": "ecge.fa.us2.oraclecloud.com:CX_1003",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "BlueDot",
       "source": "ashby",
       "board": "bluedot",
@@ -473,20 +635,38 @@
       "name": "BMO",
       "source": "workday",
       "board": "bmo:wd3:External",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "BMO",
       "source": "workday",
       "board": "bmo:wd3:Privileged",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "BNY",
+      "source": "oraclehcm",
+      "board": "eofe.fa.us2.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Boeing",
       "source": "workday",
       "board": "boeing:wd1:External_Careers",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Boston Properties",
+      "source": "oraclehcm",
+      "board": "edxn.fa.us2.oraclecloud.com:CX_5001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Box",
@@ -499,7 +679,8 @@
       "name": "Braze",
       "source": "greenhouse",
       "board": "braze",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Bread Financial",
@@ -509,10 +690,18 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Brent Council",
+      "source": "oraclehcm",
+      "board": "fa-epzg-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Brex",
       "source": "greenhouse",
       "board": "brex",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Bright Machines",
@@ -526,7 +715,8 @@
       "source": "workday",
       "board": "broadridge:wd5:careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Brunswick",
@@ -545,20 +735,23 @@
       "name": "BuildOps",
       "source": "greenhouse",
       "board": "buildops",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "CAE",
       "source": "workday",
       "board": "cae:wd3:career",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Calendly",
       "source": "greenhouse",
       "board": "calendly",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Calm",
@@ -599,7 +792,8 @@
       "source": "workday",
       "board": "canadiantirecorporation:wd3:Enterprise_External_Careers_Site",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Capital One",
@@ -609,23 +803,34 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Carmeuse",
+      "source": "oraclehcm",
+      "board": "ekiz.fa.em2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Carta",
       "source": "greenhouse",
       "board": "carta",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "CCC Intelligent Solutions",
       "source": "workday",
       "board": "cccis:wd1:broadbean_external",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Cedar",
       "source": "ashby",
       "board": "cedar",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Centerfield",
@@ -664,20 +869,31 @@
       "name": "Chowbus",
       "source": "greenhouse",
       "board": "chowbus",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Chubb",
+      "source": "oraclehcm",
+      "board": "fa-ewgu-saasfaprod1.fa.ocs.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "CIBC",
       "source": "workday",
       "board": "cibc:wd3:Search",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "CIBC",
       "source": "workday",
       "board": "cibc:wd3:campus",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Circle",
@@ -696,20 +912,45 @@
       "name": "CircleCI",
       "source": "greenhouse",
       "board": "circleci",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Cisco",
       "source": "workday",
       "board": "cisco:wd5:cisco_careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Citco",
+      "source": "oraclehcm",
+      "board": "fa-euxc-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Citizens Financial Group",
+      "source": "oraclehcm",
+      "board": "hcgn.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "City of Greeley",
+      "source": "oraclehcm",
+      "board": "elvp.fa.us2.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Clearco",
       "source": "ashby",
       "board": "clearco",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Clearwater Analytics",
@@ -722,13 +963,15 @@
       "name": "ClickUp",
       "source": "ashby",
       "board": "clickup",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Clipboard Health",
       "source": "ashby",
       "board": "clipboard",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Cloudflare",
@@ -759,13 +1002,30 @@
       "name": "Cohere",
       "source": "ashby",
       "board": "cohere",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Coherent",
+      "source": "oraclehcm",
+      "board": "hcwp.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Cohu",
+      "source": "oraclehcm",
+      "board": "hcbo.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Coinbase",
       "source": "greenhouse",
       "board": "coinbase",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Column",
@@ -787,24 +1047,43 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Conduent",
+      "source": "oraclehcm",
+      "board": "egua.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Confluent",
       "source": "ashby",
       "board": "confluent",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Cooper Companies",
+      "source": "oraclehcm",
+      "board": "hcjy.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Copart",
       "source": "workday",
       "board": "copart:wd12:copart",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Copeland",
       "source": "workday",
       "board": "copeland:wd5:copeland_external_careers_page",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "CoStar Group (Costar_Campus)",
@@ -832,7 +1111,8 @@
       "source": "workday",
       "board": "cox:wd1:Cox_External_Career_Site_1",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Creatify Lab",
@@ -846,14 +1126,16 @@
       "source": "workday",
       "board": "crowdstrike:wd5:crowdstrikecareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Crusoe",
       "source": "ashby",
       "board": "crusoe",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "CSL",
@@ -861,6 +1143,21 @@
       "board": "csl:wd1:CSL_External",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "CSX",
+      "source": "oraclehcm",
+      "board": "fa-eowa-saasfaprod1.fa.ocs.oraclecloud.com:CSXCareers",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Cummins",
+      "source": "oraclehcm",
+      "board": "fa-espx-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Cursor",
@@ -872,7 +1169,8 @@
       "name": "D2L",
       "source": "greenhouse",
       "board": "d2l",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Dapper Labs",
@@ -890,7 +1188,8 @@
       "name": "Databricks",
       "source": "greenhouse",
       "board": "databricks",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Datadog",
@@ -902,7 +1201,8 @@
       "name": "Decagon",
       "source": "ashby",
       "board": "decagon",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Dedalus Labs",
@@ -915,7 +1215,16 @@
       "name": "Deep Genomics",
       "source": "lever",
       "board": "deepgenomics",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Definity Financial",
+      "source": "oraclehcm",
+      "board": "hdks.fa.ca2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Delinea",
@@ -923,6 +1232,14 @@
       "board": "delinea",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Dell Technologies",
+      "source": "oraclehcm",
+      "board": "iawmqy.fa.ocs.oraclecloud.com:careers",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Delta Dental",
@@ -942,14 +1259,23 @@
       "source": "workday",
       "board": "dickssportinggoods:wd1:DSG",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Digital Realty",
+      "source": "oraclehcm",
+      "board": "hdep.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Diligent Corporation",
       "source": "greenhouse",
       "board": "diligentcorporation",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "DIRECTV",
@@ -965,10 +1291,26 @@
       "enabled": true
     },
     {
+      "name": "DNV",
+      "source": "oraclehcm",
+      "board": "ecyq.fa.em2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "DoubleVerify",
       "source": "greenhouse",
       "board": "doubleverify",
       "enabled": true
+    },
+    {
+      "name": "DP World",
+      "source": "oraclehcm",
+      "board": "ehpv.fa.em2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Drivemode",
@@ -988,7 +1330,15 @@
       "name": "Dropbox",
       "source": "greenhouse",
       "board": "dropbox",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "DTCC",
+      "source": "oraclehcm",
+      "board": "ebxr.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Dune",
@@ -1003,6 +1353,13 @@
       "enabled": true
     },
     {
+      "name": "Duracell",
+      "source": "oraclehcm",
+      "board": "fa-ewub-saasfaprod1.fa.ocs.oraclecloud.com:CX_26",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "E-Space",
       "source": "lever",
       "board": "espace",
@@ -1013,13 +1370,15 @@
       "name": "Earnest",
       "source": "greenhouse",
       "board": "earnest",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Eight Sleep",
       "source": "ashby",
       "board": "eightsleep",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Eko Health",
@@ -1032,20 +1391,38 @@
       "name": "Elastic",
       "source": "greenhouse",
       "board": "elastic",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "ElevenLabs",
       "source": "ashby",
       "board": "elevenlabs",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Elf Beauty",
       "source": "lever",
       "board": "elfbeauty",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Emergent Holdings",
+      "source": "oraclehcm",
+      "board": "ejko.fa.us2.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Emerson Electric",
+      "source": "oraclehcm",
+      "board": "hdjq.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "ENOVIS",
@@ -1066,7 +1443,8 @@
       "source": "workday",
       "board": "epicorsoftware:wd5:epicorjobs",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Equifax",
@@ -1104,6 +1482,22 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "EXL",
+      "source": "oraclehcm",
+      "board": "fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "EXP",
+      "source": "oraclehcm",
+      "board": "elcn.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Expedia Group (private)",
       "source": "workday",
       "board": "expedia:wd108:private",
@@ -1115,7 +1509,8 @@
       "source": "workday",
       "board": "expedia:wd108:search",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Expel",
@@ -1134,13 +1529,28 @@
       "name": "Faire",
       "source": "greenhouse",
       "board": "faire",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "FalconX",
       "source": "greenhouse",
       "board": "falconx",
       "enabled": true
+    },
+    {
+      "name": "Fanatics",
+      "source": "oraclehcm",
+      "board": "fa-exki-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Fife Council",
+      "source": "oraclehcm",
+      "board": "ekmu.fa.em3.oraclecloud.com:CX_6009",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Figma",
@@ -1152,7 +1562,8 @@
       "name": "Fireblocks",
       "source": "greenhouse",
       "board": "fireblocks",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "First American",
@@ -1173,7 +1584,8 @@
       "source": "workday",
       "board": "fiserv:wd5:ext",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Five Below",
@@ -1186,7 +1598,8 @@
       "name": "Fivetran",
       "source": "greenhouse",
       "board": "fivetran",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Flagright",
@@ -1200,31 +1613,59 @@
       "source": "workday",
       "board": "flexerasoftware:wd1:FlexeraSoftware",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Flexport",
       "source": "greenhouse",
       "board": "flexport",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Flipp",
       "source": "greenhouse",
       "board": "flipp",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Float",
       "source": "ashby",
       "board": "float",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Ford Motor Company",
+      "source": "oraclehcm",
+      "board": "efds.fa.em5.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Forter",
       "source": "greenhouse",
       "board": "forter",
       "enabled": true
+    },
+    {
+      "name": "Fortinet",
+      "source": "oraclehcm",
+      "board": "edel.fa.us2.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Fortive",
+      "source": "oraclehcm",
+      "board": "ejta.fa.us6.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Four Hands",
@@ -1252,28 +1693,46 @@
       "source": "ashby",
       "board": "gamechanger",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Garrett Motion",
+      "source": "oraclehcm",
+      "board": "ehth.fa.em2.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "GCI",
+      "source": "oraclehcm",
+      "board": "edqv.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "GE Healthcare",
       "source": "workday",
       "board": "gehc:wd5:GEHC_ExternalSite",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "GE Vernova (only_confidential_executive_recruiting)",
       "source": "workday",
       "board": "gevernova:wd5:only_confidential_executive_recruiting",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "GE Vernova (vernova_externalsite)",
       "source": "workday",
       "board": "gevernova:wd5:vernova_externalsite",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Gemini",
@@ -1300,20 +1759,31 @@
       "source": "lever",
       "board": "geocomply-2",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Geotab",
       "source": "greenhouse",
       "board": "geotab",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Geotab",
       "source": "greenhouse",
       "board": "internshiplist2000",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "GHD",
+      "source": "oraclehcm",
+      "board": "ejov.fa.ca2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Ghost",
@@ -1325,7 +1795,8 @@
       "name": "GitLab",
       "source": "greenhouse",
       "board": "gitlab",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Globus Medical",
@@ -1335,10 +1806,18 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "GM financial",
+      "source": "oraclehcm",
+      "board": "fa-exvu-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "GoDaddy",
       "source": "greenhouse",
       "board": "godaddy",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "GoDaddy",
@@ -1359,7 +1838,15 @@
       "source": "ashby",
       "board": "gorgias",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Grant Thornton",
+      "source": "oraclehcm",
+      "board": "ehzq.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Greenlight",
@@ -1367,6 +1854,13 @@
       "board": "greenlight",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Greenwood Village South",
+      "source": "oraclehcm",
+      "board": "eexs.fa.us2.oraclecloud.com:GreenwoodVillageSouth",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Greenworks",
@@ -1386,7 +1880,8 @@
       "name": "Gusto",
       "source": "greenhouse",
       "board": "gusto",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Handshake",
@@ -1406,13 +1901,15 @@
       "source": "workday",
       "board": "harriscomputer:wd3:1",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Harvey",
       "source": "ashby",
       "board": "harvey",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Headway",
@@ -1435,38 +1932,56 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Hearst",
+      "source": "oraclehcm",
+      "board": "eevd.fa.us6.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Henry Schein",
       "source": "workday",
       "board": "henryschein:wd1:External_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Hewlett Packard (HP) (externalcareersite)",
       "source": "workday",
       "board": "hp:wd5:externalcareersite",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Hewlett Packard (HP) (EXTEU-AC-CareerSite)",
       "source": "workday",
       "board": "hp:wd5:EXTEU-AC-CareerSite",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Hewlett Packard Enterprise",
       "source": "workday",
       "board": "hpe:wd5:acjobsite",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Hex",
       "source": "ashby",
       "board": "hex",
       "enabled": true
+    },
+    {
+      "name": "HEXAWARE",
+      "source": "oraclehcm",
+      "board": "fa-etqo-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Highnote",
@@ -1478,33 +1993,84 @@
       "name": "Hightouch",
       "source": "greenhouse",
       "board": "hightouch",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Hilton Worldwide",
+      "source": "oraclehcm",
+      "board": "efet.fa.us2.oraclecloud.com:CX_1009",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Hitachi",
       "source": "workday",
       "board": "hitachi:wd1:hitachi",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Hoffman Construction",
+      "source": "oraclehcm",
+      "board": "efsp.fa.us6.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Hologic",
+      "source": "oraclehcm",
+      "board": "ebwb.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Honeywell",
+      "source": "oraclehcm",
+      "board": "ibqbjb.fa.ocs.oraclecloud.com:Honeywell",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Hootsuite",
       "source": "greenhouse",
       "board": "hootsuite",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Hopper",
       "source": "ashby",
       "board": "hopper",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Hormel Foods",
+      "source": "oraclehcm",
+      "board": "ekkh.fa.us2.oraclecloud.com:CX_2002",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Howmet Aerospace",
+      "source": "oraclehcm",
+      "board": "fa-exty-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Hubs.is",
       "source": "ashby",
       "board": "hubs.is",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Hudl",
@@ -1512,6 +2078,13 @@
       "board": "hudl",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Hunt Oil Company",
+      "source": "oraclehcm",
+      "board": "fa-eqcd-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Huntress",
@@ -1538,7 +2111,8 @@
       "source": "ashby",
       "board": "illumio",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "IMO Health",
@@ -1552,13 +2126,15 @@
       "source": "workday",
       "board": "ingrammicro:wd5:IngramMicro",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Instacart",
       "source": "greenhouse",
       "board": "instacart",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Instawork",
@@ -1572,7 +2148,8 @@
       "source": "workday",
       "board": "intactfc:wd3:intactfc",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Integrity",
@@ -1586,7 +2163,15 @@
       "source": "workday",
       "board": "interac:wd3:Interac",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Intertek",
+      "source": "oraclehcm",
+      "board": "hcog.fa.em2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Invisible",
@@ -1618,40 +2203,54 @@
       "name": "Jane Software",
       "source": "ashby",
       "board": "jane",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Jobber",
       "source": "ashby",
       "board": "jobber",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Johns Manville",
       "source": "workday",
       "board": "jm:wd103:External",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Johnson & Johnson",
       "source": "workday",
       "board": "jj:wd5:JJ",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Jones Lang LaSalle (JLL)",
       "source": "workday",
       "board": "jll:wd1:jllcareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "JP Morgan Chase",
+      "source": "oraclehcm",
+      "board": "jpmc.fa.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Justworks",
       "source": "greenhouse",
       "board": "justworks",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "k-ID",
@@ -1664,34 +2263,39 @@
       "name": "Kabam",
       "source": "lever",
       "board": "kabam",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Kensington",
       "source": "greenhouse",
       "board": "kensingtontours",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Keyrock",
       "source": "ashby",
       "board": "keyrock",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "KION Group (KION_SCS)",
       "source": "workday",
       "board": "kiongroup:wd3:KION_SCS",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "KION Group (kiongroup)",
       "source": "workday",
       "board": "kiongroup:wd3:kiongroup",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "KLA",
@@ -1716,26 +2320,44 @@
       "name": "Klue",
       "source": "ashby",
       "board": "klue",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Knix",
       "source": "lever",
       "board": "knix",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "KnowBe4",
       "source": "greenhouse",
       "board": "knowbe4",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "KOHO",
       "source": "ashby",
       "board": "koho",
       "enabled": true
+    },
+    {
+      "name": "Kroll",
+      "source": "oraclehcm",
+      "board": "hcxs.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Kulicke & Soffa",
+      "source": "oraclehcm",
+      "board": "etyy.fa.ap2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "LabCorp",
@@ -1755,19 +2377,29 @@
       "name": "Later",
       "source": "greenhouse",
       "board": "later",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Lattice",
       "source": "greenhouse",
       "board": "lattice",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "LaunchDarkly",
       "source": "greenhouse",
       "board": "launchdarkly",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Lazard",
+      "source": "oraclehcm",
+      "board": "icbpjb.fa.ocs.oraclecloud.com:LazardProfessionalCareers",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Leland",
@@ -1787,7 +2419,8 @@
       "name": "Life360",
       "source": "greenhouse",
       "board": "life360",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Lightspeed",
@@ -1806,13 +2439,15 @@
       "name": "Linear",
       "source": "ashby",
       "board": "linear",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Lithic",
       "source": "greenhouse",
       "board": "lithic",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "LivaNova",
@@ -1826,14 +2461,16 @@
       "source": "workday",
       "board": "lbg:wd3:LBG_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Loblaw Companies",
       "source": "workday",
       "board": "myview:wd3:paradox_careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "LogicGate",
@@ -1847,7 +2484,8 @@
       "source": "workday",
       "board": "lowes:wd5:LWS_External_CS",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "LPL Financial Holdings",
@@ -1860,13 +2498,15 @@
       "name": "Lucid Motors",
       "source": "greenhouse",
       "board": "lucidmotors",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Lyft",
       "source": "greenhouse",
       "board": "lyft",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Maersk",
@@ -1879,20 +2519,23 @@
       "name": "Magnet Forensics",
       "source": "lever",
       "board": "magnetforensics",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Manulife",
       "source": "workday",
       "board": "manulife:wd3:MFCJH_Jobs",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Manulife Financial",
       "source": "workday",
       "board": "manulife:wd3:MFCJH_adminJobs",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Maple",
@@ -1912,7 +2555,8 @@
       "source": "workday",
       "board": "marmon:wd501:Marmon_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Marmon Holdings (Marmon_MSIP_Internships)",
@@ -1926,20 +2570,23 @@
       "source": "workday",
       "board": "marvell:wd1:MarvellCareers2",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Mastercard",
       "source": "workday",
       "board": "mastercard:wd1:Campus",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Match Group",
       "source": "lever",
       "board": "matchgroup",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Matterworks",
@@ -1952,27 +2599,54 @@
       "name": "Medium",
       "source": "greenhouse",
       "board": "medium",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Medline",
       "source": "workday",
       "board": "medline:wd5:Medline",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Menasha Corporation",
       "source": "workday",
       "board": "menasha:wd12:menashacorp",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Mercury",
       "source": "greenhouse",
       "board": "mercury",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Metrolinx",
+      "source": "oraclehcm",
+      "board": "ehtc.fa.ca2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Michael Baker International",
+      "source": "oraclehcm",
+      "board": "ebxs.fa.us2.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Midmark",
+      "source": "oraclehcm",
+      "board": "hcor.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Mintlify",
@@ -1984,7 +2658,8 @@
       "name": "Miovision",
       "source": "ashby",
       "board": "miovision",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Miro",
@@ -2003,7 +2678,8 @@
       "name": "Mixpanel",
       "source": "greenhouse",
       "board": "mixpanel",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Mobilityware",
@@ -2029,7 +2705,8 @@
       "name": "MongoDB",
       "source": "greenhouse",
       "board": "mongodb",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Monolithic Power Systems",
@@ -2037,6 +2714,13 @@
       "board": "monolithicpower:wd12:MPS_Careers",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Montenson",
+      "source": "oraclehcm",
+      "board": "fa-esgu-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Monzo",
@@ -2049,7 +2733,15 @@
       "source": "workday",
       "board": "motorolasolutions:wd5:Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Myriad Genetics",
+      "source": "oraclehcm",
+      "board": "ekgn.fa.us6.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "N26",
@@ -2062,7 +2754,8 @@
       "source": "workday",
       "board": "nasdaq:wd1:Global_External_Site",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Nationwide",
@@ -2072,10 +2765,18 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Navy Federal",
+      "source": "oraclehcm",
+      "board": "fa-etbx-saasfaprod1.fa.ocs.oraclecloud.com:nfcu",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Neo Financial",
       "source": "ashby",
       "board": "neofinancial",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Neon",
@@ -2087,19 +2788,22 @@
       "name": "NerdWallet",
       "source": "ashby",
       "board": "nerdwallet",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Netskope",
       "source": "greenhouse",
       "board": "netskope",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "New Relic",
       "source": "greenhouse",
       "board": "newrelic",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "New York Post Holdings",
@@ -2107,6 +2811,21 @@
       "board": "dowjones:wd1:New_York_Post_Careers",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Newham",
+      "source": "oraclehcm",
+      "board": "elyq.fa.em3.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Newmark Group",
+      "source": "oraclehcm",
+      "board": "hdow.fa.us6.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Nextdoor",
@@ -2126,7 +2845,8 @@
       "source": "greenhouse",
       "board": "nice",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "NJM Insurance Group",
@@ -2134,6 +2854,14 @@
       "board": "njm:wd1:njm",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Nokia",
+      "source": "oraclehcm",
+      "board": "fa-evmr-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Nooks",
@@ -2148,16 +2876,32 @@
       "enabled": true
     },
     {
+      "name": "Northwell Health",
+      "source": "oraclehcm",
+      "board": "eppr.fa.us2.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Notion",
       "source": "ashby",
       "board": "notion",
       "enabled": true
     },
     {
+      "name": "NOV",
+      "source": "oraclehcm",
+      "board": "egay.fa.us6.oraclecloud.com:CX_4001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Nubank",
       "source": "ashby",
       "board": "nubank",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Nuro",
@@ -2170,25 +2914,36 @@
       "source": "workday",
       "board": "nvent:wd5:nVent",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "NVIDIA",
       "source": "workday",
       "board": "nvidia:wd5:NVIDIAExternalCareerSite",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Okta",
       "source": "greenhouse",
       "board": "okta",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Olo",
       "source": "lever",
       "board": "olo",
       "enabled": true
+    },
+    {
+      "name": "onsemi",
+      "source": "oraclehcm",
+      "board": "hctz.fa.us2.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Onto Innovation",
@@ -2201,7 +2956,8 @@
       "name": "OpenAI",
       "source": "ashby",
       "board": "openai",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "OpenEvidence",
@@ -2220,13 +2976,23 @@
       "name": "OpenTable",
       "source": "greenhouse",
       "board": "opentable",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "OpusClip",
       "source": "ashby",
       "board": "opusclip",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Oracle",
+      "source": "oraclehcm",
+      "board": "eeho.fa.us2.oraclecloud.com:CX_45001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Orthofix",
@@ -2289,7 +3055,8 @@
       "name": "Oyster",
       "source": "ashby",
       "board": "oyster",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Pacvue",
@@ -2309,7 +3076,8 @@
       "name": "PagerDuty",
       "source": "greenhouse",
       "board": "pagerduty",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Palantir",
@@ -2329,7 +3097,8 @@
       "source": "greenhouse",
       "board": "patientpoint",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Patreon",
@@ -2347,27 +3116,39 @@
       "name": "Payoneer",
       "source": "greenhouse",
       "board": "payoneer",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Pearson",
+      "source": "oraclehcm",
+      "board": "hccz.fa.em3.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Pebl",
       "source": "ashby",
       "board": "pebl",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Pelmorex",
       "source": "lever",
       "board": "pelmorex",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Peloton",
       "source": "greenhouse",
       "board": "peloton",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Pentair",
@@ -2394,13 +3175,15 @@
       "name": "Perplexity",
       "source": "ashby",
       "board": "perplexity",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Persona",
       "source": "ashby",
       "board": "persona",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Phoenix Contact",
@@ -2408,6 +3191,14 @@
       "board": "phoenixcontact",
       "enabled": true,
       "_origin": "historical PM postings"
+    },
+    {
+      "name": "Photon",
+      "source": "oraclehcm",
+      "board": "fa-ertb-saasfaprod1.fa.ocs.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Pika",
@@ -2420,13 +3211,15 @@
       "source": "workday",
       "board": "pimco:wd1:pimco-careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Pinterest",
       "source": "greenhouse",
       "board": "pinterest",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Plaid",
@@ -2445,25 +3238,43 @@
       "source": "greenhouse",
       "board": "podium81",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "PointClickCare",
       "source": "lever",
       "board": "pointclickcare",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Polk County",
+      "source": "oraclehcm",
+      "board": "fa-eqpz-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Poolside",
       "source": "ashby",
       "board": "poolside",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Postman",
       "source": "greenhouse",
       "board": "postman",
       "enabled": true
+    },
+    {
+      "name": "Powell",
+      "source": "oraclehcm",
+      "board": "ekcf.fa.us6.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Practising Law Institute",
@@ -2491,13 +3302,15 @@
       "source": "workday",
       "board": "pg:wd5:1000",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Procurify",
       "source": "ashby",
       "board": "procurify",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Progyny",
@@ -2511,7 +3324,8 @@
       "source": "workday",
       "board": "proofpoint:wd5:proofpointcareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Public",
@@ -2524,14 +3338,16 @@
       "source": "lever",
       "board": "quandri",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "QuidelOrtho",
       "source": "workday",
       "board": "orthoclinical:wd1:Search",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Railway",
@@ -2544,19 +3360,29 @@
       "source": "workday",
       "board": "rakuten:wd1:RakutenRewards",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Ralliant",
+      "source": "oraclehcm",
+      "board": "ibwujb.fa.ocs.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Ramp",
       "source": "ashby",
       "board": "ramp",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "RBC (students)",
       "source": "workday",
       "board": "rbc:wd3:ExternalPrivatePostingStudents",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Red Hat",
@@ -2569,7 +3395,8 @@
       "name": "Reddit",
       "source": "greenhouse",
       "board": "reddit",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Relativity",
@@ -2588,26 +3415,30 @@
       "name": "Render",
       "source": "ashby",
       "board": "render",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Replit",
       "source": "ashby",
       "board": "replit",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Resmed",
       "source": "workday",
       "board": "resmed:wd3:ResMed_External_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Restaurant Brands International",
       "source": "jobsitemap",
       "board": "https://careers.rbi.com/sitemap.xml",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Revvity",
@@ -2620,7 +3451,8 @@
       "name": "Rewind",
       "source": "ashby",
       "board": "rewind",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "RF-SMART",
@@ -2630,10 +3462,18 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Rheem",
+      "source": "oraclehcm",
+      "board": "hdde.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Ripple",
       "source": "greenhouse",
       "board": "ripple",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Rise8",
@@ -2658,13 +3498,15 @@
       "name": "Robinhood",
       "source": "greenhouse",
       "board": "robinhood",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Roblox",
       "source": "greenhouse",
       "board": "roblox",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Rocket Companies",
@@ -2678,80 +3520,100 @@
       "source": "workday",
       "board": "rockwellautomation:wd1:External_Rockwell_Automation",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "ROCKWOOL Group",
       "source": "workday",
       "board": "rockwoolgroup:wd3:ROCKWOOL",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Rogers",
       "source": "rss",
       "board": "https://jobs.rogers.com/sitemap.xml",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Royal Bank of Canada (RBCEARLYTALENT1)",
       "source": "workday",
       "board": "rbc:wd3:RBCEARLYTALENT1",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Royal Bank of Canada (rbcglobal1)",
       "source": "workday",
       "board": "rbc:wd3:rbcglobal1",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "RTX (Private_Posting_No_TMP)",
       "source": "workday",
       "board": "globalhr:wd5:Private_Posting_No_TMP",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "RTX (rec_rtx_ext_gateway)",
       "source": "workday",
       "board": "globalhr:wd5:rec_rtx_ext_gateway",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Rubrik",
       "source": "greenhouse",
       "board": "rubrik",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Runway",
       "source": "ashby",
       "board": "runway",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "S&C Electric Company",
+      "source": "oraclehcm",
+      "board": "ejia.fa.us6.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "S&P Global",
       "source": "workday",
       "board": "spgi:wd5:SPGI_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "SailPoint",
       "source": "workday",
       "board": "sailpoint:wd1:SailPoint",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Salesforce",
       "source": "workday",
       "board": "salesforce:wd12:External_Career_Site",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Salesforce",
@@ -2771,7 +3633,8 @@
       "source": "greenhouse",
       "board": "saltxc",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Samba TV",
@@ -2784,7 +3647,15 @@
       "name": "Samsara",
       "source": "greenhouse",
       "board": "samsara",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Samsonite",
+      "source": "oraclehcm",
+      "board": "ekkf.fa.em2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Samsung",
@@ -2798,7 +3669,8 @@
       "source": "workday",
       "board": "sec:wd3:Samsung_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Sanctuary AI",
@@ -2818,25 +3690,51 @@
       "source": "workday",
       "board": "saputo:wd5:saputo_external_careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Sardine",
       "source": "ashby",
       "board": "sardine",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Savannah River National Laboratory",
+      "source": "oraclehcm",
+      "board": "ewvl.fa.us8.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Scale AI",
       "source": "greenhouse",
       "board": "scaleai",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Schroders",
+      "source": "oraclehcm",
+      "board": "ekbq.fa.em2.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "SCOR",
+      "source": "oraclehcm",
+      "board": "fa-errt-saasfaprod1.fa.ocs.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Scotiabank",
       "source": "rss",
       "board": "https://jobs.scotiabank.com/sitemap.xml",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Scout Motors",
@@ -2846,22 +3744,39 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Seaspan",
+      "source": "oraclehcm",
+      "board": "hckz.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "SeatGeek",
       "source": "greenhouse",
       "board": "seatgeek",
       "enabled": true
     },
     {
+      "name": "Securitas",
+      "source": "oraclehcm",
+      "board": "ekaw.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Sentry",
       "source": "ashby",
       "board": "sentry",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Sezzle",
       "source": "greenhouse",
       "board": "sezzle",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Sezzle (internships)",
@@ -2873,14 +3788,31 @@
       "name": "Shakepay",
       "source": "greenhouse",
       "board": "shakepay",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "SharkNinja",
       "source": "greenhouse",
       "board": "sharkninjaoperatingllc",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "SHEIN",
+      "source": "oraclehcm",
+      "board": "fa-exjq-saasfaprod1.fa.ocs.oraclecloud.com:SHEIN",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Sherwin-Williams",
+      "source": "oraclehcm",
+      "board": "ejhp.fa.us6.oraclecloud.com:CX_2",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Shield AI",
@@ -2898,34 +3830,46 @@
       "name": "Sierra",
       "source": "ashby",
       "board": "sierra",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Sigma Computing",
       "source": "greenhouse",
       "board": "sigmacomputing",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Signet Jewelers",
       "source": "workday",
       "board": "signetjewelers:wd1:SignetCorporateCareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Signify",
       "source": "workday",
       "board": "lighting:wd3:jobs-and-careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Simplify community feed",
       "source": "simplify",
       "board": "Summer2027-Internships",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Sinclair",
+      "source": "oraclehcm",
+      "board": "edyy.fa.us2.oraclecloud.com:CX_2002",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Skydio",
@@ -2937,7 +3881,8 @@
       "name": "Slice",
       "source": "greenhouse",
       "board": "slice",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Smartsheet",
@@ -2956,7 +3901,8 @@
       "name": "Snowflake",
       "source": "ashby",
       "board": "snowflake",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Snyk",
@@ -2969,7 +3915,8 @@
       "name": "Socure",
       "source": "ashby",
       "board": "socure",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "SoFi",
@@ -2989,7 +3936,15 @@
       "source": "workday",
       "board": "soti:wd3:SOTI-Next-Gen",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "Southern Company",
+      "source": "oraclehcm",
+      "board": "emje.fa.us6.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Splice",
@@ -3001,7 +3956,8 @@
       "name": "Spotify",
       "source": "lever",
       "board": "spotify",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Sprinklr",
@@ -3024,6 +3980,14 @@
       "enabled": true
     },
     {
+      "name": "Stantec",
+      "source": "oraclehcm",
+      "board": "hdhl.fa.us6.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Starburst",
       "source": "greenhouse",
       "board": "starburst",
@@ -3034,7 +3998,8 @@
       "source": "workday",
       "board": "statestreet:wd1:Global",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Stewart",
@@ -3051,6 +4016,14 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Strathcona County",
+      "source": "oraclehcm",
+      "board": "fa-erjf-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Strava",
       "source": "ashby",
       "board": "strava",
@@ -3060,13 +4033,29 @@
       "name": "Stripe",
       "source": "greenhouse",
       "board": "stripe",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Substack",
       "source": "ashby",
       "board": "substack",
       "enabled": true
+    },
+    {
+      "name": "Suffolk County",
+      "source": "oraclehcm",
+      "board": "eoce.fa.em3.oraclecloud.com:CX_1004",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "Sundt",
+      "source": "oraclehcm",
+      "board": "eewl.fa.us6.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Suno",
@@ -3078,7 +4067,8 @@
       "name": "Supabase",
       "source": "ashby",
       "board": "supabase",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "SupplyHouse.com",
@@ -3092,7 +4082,8 @@
       "source": "workday",
       "board": "swbc:wd1:swbccareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Sweatpals",
@@ -3138,13 +4129,15 @@
       "name": "Take-Two / Zynga",
       "source": "greenhouse",
       "board": "taketwo",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Tanium",
       "source": "greenhouse",
       "board": "tanium",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "tastytrade",
@@ -3156,14 +4149,16 @@
       "name": "TD Bank",
       "source": "workday",
       "board": "td:wd3:TD_Bank_Careers",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "TD Synnex",
       "source": "workday",
       "board": "synnex:wd5:tdsynnexcareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "TelevisaUnivision",
@@ -3176,20 +4171,23 @@
       "name": "TELUS",
       "source": "jobsitemap",
       "board": "https://careers.telus.com/sitemap.xml",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "TELUS Digital",
       "source": "ashby",
       "board": "telus-digital",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Temporal",
       "source": "ashby",
       "board": "temporal",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Tencent",
@@ -3202,13 +4200,15 @@
       "name": "Tenstorrent",
       "source": "greenhouse",
       "board": "tenstorrent",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Tenstorrent (university)",
       "source": "greenhouse",
       "board": "tenstorrentuniversity",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Tessera Labs",
@@ -3218,32 +4218,58 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Texas Instruments",
+      "source": "oraclehcm",
+      "board": "edbz.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "Texas Instruments",
+      "source": "oraclehcm",
+      "board": "ebgj.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Thales",
       "source": "workday",
       "board": "thales:wd3:Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "The Coca-Cola Company",
       "source": "workday",
       "board": "coke:wd1:coca-cola-careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "The Home Depot",
       "source": "workday",
       "board": "homedepot:wd5:careerdepot",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "The Trade Desk",
       "source": "greenhouse",
       "board": "thetradedesk",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "The University of Edinburgh",
+      "source": "oraclehcm",
+      "board": "elxw.fa.em3.oraclecloud.com:CX_1001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "The Walt Disney Company (disneycareer)",
@@ -3257,7 +4283,8 @@
       "source": "workday",
       "board": "disney:wd5:disneycareerdc",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "The Weather Company",
@@ -3270,19 +4297,22 @@
       "name": "Thinkific",
       "source": "ashby",
       "board": "thinkific",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Thomson Reuters",
       "source": "workday",
       "board": "thomsonreuters:wd5:External_Career_Site",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Thumbtack",
       "source": "ashby",
       "board": "thumbtack",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "TKO Group Holdings, Inc",
@@ -3295,7 +4325,8 @@
       "name": "Toast",
       "source": "greenhouse",
       "board": "toast",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Together AI",
@@ -3309,7 +4340,8 @@
       "source": "ashby",
       "board": "tonal",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Toshiba Global Commerce",
@@ -3319,24 +4351,41 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Tradeweb",
+      "source": "oraclehcm",
+      "board": "ecnf.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Travelers",
       "source": "workday",
       "board": "travelers:wd5:External",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Trimble",
       "source": "workday",
       "board": "trimble:wd1:TrimbleCareers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
+    },
+    {
+      "name": "TriNet",
+      "source": "oraclehcm",
+      "board": "fa-etgw-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Trulioo",
       "source": "ashby",
       "board": "trulioo",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Tulip",
@@ -3348,14 +4397,16 @@
       "name": "Twilio",
       "source": "greenhouse",
       "board": "twilio",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "U.S. Bank",
       "source": "workday",
       "board": "usbank:wd1:US_Bank_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Udio",
@@ -3364,11 +4415,20 @@
       "enabled": true
     },
     {
+      "name": "UL Solutions",
+      "source": "oraclehcm",
+      "board": "fa-eups-saasfaprod1.fa.ocs.oraclecloud.com:ULSolutionsCareers",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Uline",
       "source": "workday",
       "board": "uline:wd1:Uline_Careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Unit",
@@ -3377,10 +4437,18 @@
       "enabled": true
     },
     {
+      "name": "University of Wyoming",
+      "source": "oraclehcm",
+      "board": "eeik.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Upgrade",
       "source": "greenhouse",
       "board": "upgrade",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Upstart",
@@ -3414,20 +4482,23 @@
       "source": "workday",
       "board": "vanderlande:wd3:careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Vanguard",
       "source": "workday",
       "board": "vanguard:wd5:vanguard_external",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Vanta",
       "source": "ashby",
       "board": "vanta",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Velocity",
@@ -3455,10 +4526,34 @@
       "enabled": true
     },
     {
+      "name": "Verisk",
+      "source": "oraclehcm",
+      "board": "fa-ewmy-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Verkada",
       "source": "greenhouse",
       "board": "verkada",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Vertiv",
+      "source": "oraclehcm",
+      "board": "egup.fa.us2.oraclecloud.com:CX",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "VITAS Healthcare",
+      "source": "oraclehcm",
+      "board": "ejrz.fa.us2.oraclecloud.com:CX_5001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Vivid",
@@ -3470,21 +4565,24 @@
       "name": "Waabi",
       "source": "lever",
       "board": "waabi",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Walmart",
       "source": "workday",
       "board": "walmart:wd504:WalmartExternal",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Warner Bros.",
       "source": "workday",
       "board": "warnerbros:wd5:global",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Warp",
@@ -3496,14 +4594,16 @@
       "name": "Wattpad",
       "source": "lever",
       "board": "wattpad",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Watts Water (external)",
       "source": "workday",
       "board": "wattswater:wd5:external",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Watts Water (Intern-External)",
@@ -3516,7 +4616,15 @@
       "name": "Waymo",
       "source": "greenhouse",
       "board": "waymo",
-      "enabled": true
+      "enabled": true,
+      "canada": true
+    },
+    {
+      "name": "Wayne County",
+      "source": "oraclehcm",
+      "board": "emqz.fa.us2.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
     },
     {
       "name": "Wealthfront",
@@ -3528,7 +4636,8 @@
       "name": "Wealthsimple",
       "source": "ashby",
       "board": "wealthsimple",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Webflow",
@@ -3548,6 +4657,14 @@
       "source": "ashby",
       "board": "whoop",
       "enabled": true
+    },
+    {
+      "name": "Williams-Sonoma",
+      "source": "oraclehcm",
+      "board": "ehac.fa.us6.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
     },
     {
       "name": "Winland Foods",
@@ -3570,6 +4687,29 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Worthington Enterprises",
+      "source": "oraclehcm",
+      "board": "fa-eygo-saasfaprod1.fa.ocs.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
+      "name": "WSP",
+      "source": "oraclehcm",
+      "board": "emit.fa.ca3.oraclecloud.com:CX_2001",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
+      "name": "WTW",
+      "source": "oraclehcm",
+      "board": "eedu.fa.em3.oraclecloud.com:CX_1003",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings",
+      "canada": true
+    },
+    {
       "name": "Xcel Energy",
       "source": "workday",
       "board": "xcelenergy:wd1:External",
@@ -3581,7 +4721,8 @@
       "source": "workday",
       "board": "xylem:wd5:xylem-careers",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Yes Energy",
@@ -3604,10 +4745,18 @@
       "_origin": "historical PM postings"
     },
     {
+      "name": "Zensar",
+      "source": "oraclehcm",
+      "board": "fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com:CX_1",
+      "enabled": true,
+      "_origin": "oracle hcm tenant from historical postings"
+    },
+    {
       "name": "Zensurance",
       "source": "lever",
       "board": "zensurance",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Zoetis",
@@ -3634,19 +4783,22 @@
       "source": "workday",
       "board": "elkay:wd1:Elkay_External",
       "enabled": true,
-      "_origin": "historical PM postings"
+      "_origin": "historical PM postings",
+      "canada": true
     },
     {
       "name": "Zynga",
       "source": "greenhouse",
       "board": "zyngacareers",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     },
     {
       "name": "Zynga (early careers)",
       "source": "greenhouse",
       "board": "zyngaearlycareers",
-      "enabled": true
+      "enabled": true,
+      "canada": true
     }
   ],
   "_watchlist_comment": "Per-company widening, layered on top of the default product-management-only filter. Never removes a default match; only adds. regions: ca | us | na (omit for anywhere).",
@@ -3708,5 +4860,6 @@
       "require_internship": false,
       "note": "rotational FT programme carries no internship wording; expected to open 2026-09-14"
     }
-  ]
+  ],
+  "_canada_comment": "canada:true marks boards observed to carry Canadian postings. `scan --region ca` uses only these, which is what makes the 20-minute Canadian cadence affordable."
 }

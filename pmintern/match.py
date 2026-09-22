@@ -146,10 +146,14 @@ US_CITIES = (
     "silicon valley", "salt lake city", "kansas city", "ann arbor",
 ]
 
+# Only names that are unambiguously Canadian. "Victoria" (Australia),
+# "Hamilton" (New Zealand), "London" (UK) and "Waterloo" (Iowa) all appear
+# elsewhere and were pulling foreign roles in as Canadian.
 CA_CITIES = [
-    "toronto", "vancouver", "montreal", "montréal", "ottawa", "waterloo",
-    "kitchener", "calgary", "edmonton", "mississauga", "burnaby", "victoria",
-    "halifax", "winnipeg", "quebec city", "markham", "hamilton", "london, on",
+    "toronto", "vancouver", "montreal", "montréal", "ottawa", "kitchener",
+    "calgary", "edmonton", "mississauga", "burnaby", "halifax", "winnipeg",
+    "quebec city", "markham", "oakville", "brampton", "saskatoon", "regina",
+    "london, on", "waterloo, on", "victoria, bc", "hamilton, on",
 ]
 
 # Countries that mean "not North America" unless a US/CA token also appears.
@@ -229,10 +233,21 @@ def location_region(location: str) -> str:
     )
     has_us = (
         any(phrase in low for phrase in ("united states", "usa", "u.s."))
+        or re.search(r"\bus\b", low) is not None
         or _contains_word(low, US_CITIES)
         or _contains_word(low, US_STATES)
         or any(re.search(rf",\s*{ab}\b", location) for ab in US_ABBREV)
     )
+    # An explicit country or a "City, XX" code is hard evidence; a bare city
+    # name is a guess. When a foreign country is named and there is no hard
+    # North American evidence, the foreign name wins -- otherwise "Scoresby,
+    # Victoria, Australia" reads as Canadian.
+    explicit_na = (
+        any(phrase in low for phrase in ("canada", "united states", "usa", "u.s."))
+        or any(re.search(rf",\s*{ab}\b", location) for ab in US_ABBREV + CA_ABBREV)
+    )
+    if any(country in low for country in FOREIGN) and not explicit_na:
+        return "foreign"
     if has_us and has_ca:
         return "na"
     if has_ca:
@@ -339,3 +354,40 @@ def matches_watchlist(job, watchlist) -> bool:
             continue
         return True
     return False
+
+
+# Canada is the priority market and its volume is low, so the net there is
+# wider than the US one: product-adjacent roles plus generalist campus
+# programmes, which often carry no product wording at all (American Express's
+# "Campus Undergraduate Summer Internship Program ... Toronto" is a PM feeder
+# with "product" nowhere in the title).
+CAMPUS_PROGRAMME = (
+    r"\bcampus\b",
+    r"\bundergraduate\b",
+    r"\bsummer (?:analyst|associate|internship)\b",
+    r"\binternship program(?:me)?\b",
+    r"\brotational\b",
+    r"\bgeneralist\b",
+    r"\bearly career",
+    r"\bemerging talent\b",
+    r"\bbusiness analyst\b",
+    r"\bstrategy\b",
+    r"\boperations\b",
+)
+
+
+def is_canada_candidate(title: str) -> bool:
+    """Wider Canadian rule: product-adjacent, or a generalist campus programme."""
+    low = title.lower()
+    if _matches_any(low, NOT_ADJACENT):
+        return False
+    if _matches_any(low, SENIOR_PATTERNS):
+        return False
+    return is_adjacent_title(title) or _matches_any(low, CAMPUS_PROGRAMME)
+
+
+def matches_canada(job) -> bool:
+    """True for a Canadian internship worth surfacing under the wider rule."""
+    if location_region(job.location) not in ("ca", "na"):
+        return False
+    return is_internship_title(job.title) and is_canada_candidate(job.title)

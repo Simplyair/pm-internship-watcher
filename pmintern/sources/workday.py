@@ -5,6 +5,7 @@ taken from the careers URL https://<tenant>.<wdHost>.myworkdayjobs.com/<siteName
 """
 from __future__ import annotations
 
+import os
 import re
 from concurrent.futures import ThreadPoolExecutor
 
@@ -19,13 +20,18 @@ PAGE = 20
 # a broad "product" search pulled every full-time product role on large boards
 # (Loblaw: 317 postings fetched to find 17 internships, 21 seconds).
 # (term, max pages)
-SEARCH_TERMS = (
+# The Canadian pass runs every 20 minutes over ~250 boards, so it uses a
+# lighter search plan; the daily full sweep digs deep.
+FAST = os.environ.get("PMINTERN_FAST") == "1"
+SEARCH_TERMS_FAST = (("intern", 2), ("co-op", 2))
+SEARCH_TERMS_FULL = (
     ("intern", 12),
     ("co-op", 6),
     ("rotational", 2),
     ("associate product manager", 2),
     ("new grad", 2),
 )
+SEARCH_TERMS = SEARCH_TERMS_FAST if FAST else SEARCH_TERMS_FULL
 # Workday ranks by relevance but scatters matches, so a fixed small page cap
 # loses recall (RTX: 47 internships found with deep paging, 20 with 3 pages).
 # Instead page until a whole page contains nothing early-career, then stop.

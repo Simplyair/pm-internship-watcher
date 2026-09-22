@@ -1,7 +1,7 @@
 """Job board adapters. Each exposes fetch(board, company) -> list[Job]."""
 from __future__ import annotations
 
-from . import ashby, greenhouse, jobsitemap, lever, rssfeed, simplify, workday
+from . import ashby, greenhouse, jobsitemap, lever, oraclehcm, rssfeed, simplify, workday
 
 ADAPTERS = {
     "greenhouse": greenhouse.fetch,
@@ -11,6 +11,7 @@ ADAPTERS = {
     "workday": workday.fetch,
     "rss": rssfeed.fetch,
     "jobsitemap": jobsitemap.fetch,
+    "oraclehcm": oraclehcm.fetch,
 }
 
 

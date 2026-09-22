@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from . import store, telegram
 from .config import COMPANIES_PATH
 from .http import FetchError
-from .match import location_region, matches, matches_watchlist
+from .match import location_region, matches, matches_canada, matches_watchlist
 from .models import Job
 from .sources import fetch
 
@@ -28,11 +28,20 @@ class ScanResult:
     seeded: bool = False
 
 
-def load_companies(path=COMPANIES_PATH) -> list[dict]:
+def load_companies(path=COMPANIES_PATH, region: str | None = None) -> list[dict]:
+    """Enabled boards, optionally only those that actually post in Canada.
+
+    Canada is scanned far more often than the rest, so the fast pass runs over
+    the subset of boards observed to carry Canadian postings rather than all
+    ~675, which keeps a 20-minute cadence affordable.
+    """
     if not path.exists():
         raise FileNotFoundError(f"{path} is missing")
     doc = json.loads(path.read_text(encoding="utf-8"))
-    return [c for c in doc.get("companies", []) if c.get("enabled", True)]
+    companies = [c for c in doc.get("companies", []) if c.get("enabled", True)]
+    if region == "ca":
+        companies = [c for c in companies if c.get("canada")]
+    return companies
 
 
 def load_watchlist(path=COMPANIES_PATH) -> list[dict]:
@@ -53,8 +62,9 @@ def _scan_board(company: dict) -> tuple[dict, list[Job] | None, str]:
 
 
 def scan(conn, *, workers: int = 20, require_location: bool = True,
-         verbose: bool = False, record: bool = True, only: str | None = None) -> ScanResult:
-    companies = load_companies()
+         verbose: bool = False, record: bool = True, only: str | None = None,
+         region: str | None = None) -> ScanResult:
+    companies = load_companies(region=region)
     if only:
         needle = only.lower()
         companies = [c for c in companies if needle in c["name"].lower()]
@@ -76,9 +86,13 @@ def scan(conn, *, workers: int = 20, require_location: bool = True,
                     print(f"  ! {company['name']}: {error}")
                 continue
             store.record_board(conn, source, board, company["name"], True)
-            hits = [j for j in jobs
-                    if matches(j, require_location=require_location)
-                    or matches_watchlist(j, watchlist)]
+            if region == "ca":
+                hits = [j for j in jobs if matches_canada(j)]
+            else:
+                hits = [j for j in jobs
+                        if matches(j, require_location=require_location)
+                        or matches_canada(j)
+                        or matches_watchlist(j, watchlist)]
             seen_by_board[(source, board)] = {j.key for j in hits}
             all_matched.extend(hits)
             if verbose and hits:
@@ -106,6 +120,8 @@ def scan(conn, *, workers: int = 20, require_location: bool = True,
     # Anything we previously tracked on a board we just scanned successfully,
     # but did not see this time, has come down.
     closed_keys = []
+    if region:
+        seen_by_board = {}      # a partial pass cannot judge what has come down
     for (source, board), live_keys in seen_by_board.items():
         for key in store.keys_for_board(conn, source, board) - live_keys:
             closed_keys.append(key)

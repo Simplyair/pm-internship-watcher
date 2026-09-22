@@ -1,0 +1,63 @@
+# Canada fast pass. Canada is the priority market and its volume is low, so it
+# is scanned often and with a wider net (product-adjacent roles plus generalist
+# campus programmes), while the US is swept once a day under the strict
+# product-management rule.
+#
+# Only boards observed to carry Canadian postings are scanned here, which is
+# what makes a 20-minute cadence affordable against ~675 total boards.
+#
+# Shares the main watcher's cache lineage and concurrency group, so the two
+# never overlap and never double-alert.
+name: Canada watch
+
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+    inputs:
+      digest:
+        description: "Send as one summary (for the first backfill run)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: pm-internship-watch
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore state
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            jobs.db
+            .cache
+          key: pm-state-${{ github.run_id }}
+          restore-keys: pm-state-
+      - name: Scan Canadian boards
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 cli.py scan --region ca ${{ inputs.digest && '--digest' || '' }}
+      - name: Persist tracker decisions
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain tracker.json)" ]; then
+            git config user.name "pm-internship-watcher"
+            git config user.email "actions@users.noreply.github.com"
+            git add tracker.json && git commit -m "Update tracker from Telegram [skip ci]" && git push
+          fi
+      - name: Save state
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: |
+            jobs.db
+            .cache
+          key: pm-state-${{ github.run_id }}
