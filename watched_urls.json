@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Google — Associate Product Manager, University Graduate, 2027 Start",
+    "url": "https://www.google.com/about/careers/applications/jobs/results/107272685397910214",
+    "open_when_gone": ["will begin accepting applications"],
+    "open_when_present": ["apply now", "apply for this job", "submit application"],
+    "enabled": true,
+    "note": "Page is server-rendered but Google's listing is not scrapable; watched by URL."
+  }
+]

@@ -15,7 +15,7 @@ import sys
 import time
 import webbrowser
 
-from pmintern import config, store, telegram
+from pmintern import config, store, telegram, urlwatch
 from pmintern.config import COMPANIES_PATH
 from pmintern.http import FetchError
 from pmintern.match import location_region
@@ -312,6 +312,40 @@ def cmd_send(args) -> None:
         print(f"done - {len(jobs)} sent to Telegram")
 
 
+def cmd_urlwatch(args) -> None:
+    """Poll individually watched job pages and alert the moment one opens."""
+    conn = store.connect()
+    watches = urlwatch.load()
+    if not watches:
+        print("nothing in watched_urls.json")
+        return
+    bot = None if args.dry_run else bot_from_env()
+
+    while True:
+        for watch in watches:
+            state, previous, title = urlwatch.check(conn, watch)
+            stamp = time.strftime("%H:%M:%S")
+            name = watch.get("name", watch["url"])[:52]
+            print(f"[{stamp}] {name} -> {state}"
+                  + (f" (was {previous})" if previous and previous != state else ""))
+            if state == "open" and previous != "open":
+                text = urlwatch.message(watch, title)
+                if args.dry_run:
+                    print(text)
+                else:
+                    for _ in range(3):      # this is the one alert that must land
+                        try:
+                            bot.send(text, disable_preview=False)
+                            break
+                        except FetchError as exc:
+                            print(f"  ! send failed, retrying: {exc}")
+                            time.sleep(3)
+                    print("  ALERT SENT")
+        if not args.loop:
+            return
+        time.sleep(max(30, args.loop * 60))
+
+
 def cmd_setup(args) -> None:
     """Guided first-time setup: verify the token, find the chat id, save it."""
     token = config.get("TELEGRAM_BOT_TOKEN")
@@ -485,6 +519,11 @@ def build_parser() -> argparse.ArgumentParser:
                    help="how long to wait for your first message")
     p.add_argument("--force", action="store_true", help="re-detect the chat id")
     p.set_defaults(func=cmd_setup)
+
+    p = sub.add_parser("urlwatch", help="watch individual job URLs and alert when they open")
+    p.add_argument("--loop", type=float, metavar="MIN", help="keep checking every MIN minutes")
+    p.add_argument("--dry-run", action="store_true")
+    p.set_defaults(func=cmd_urlwatch)
 
     sub.add_parser("chatid", help="find your Telegram chat id").set_defaults(func=cmd_chatid)
     sub.add_parser("test", help="send a test Telegram message").set_defaults(func=cmd_test)

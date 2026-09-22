@@ -1,0 +1,51 @@
+# Watches individual job URLs listed in watched_urls.json and alerts the moment
+# one opens. Currently: Google's APM University Graduate 2027 posting, which
+# says it begins accepting applications on 22 September.
+#
+# Google's job listing cannot be scanned, but an individual job page IS
+# server-rendered, so a known URL can be polled even though it could never be
+# discovered.
+#
+# Deliberately isolated from the main watcher: its own cache lineage and
+# concurrency group, so a 20-second URL check never queues behind (or clobbers
+# the database of) the ~5-minute board scan.
+#
+# Turn off once the posting opens:
+#   gh workflow disable "Job URL watch"
+name: Job URL watch
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: pm-url-watch
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Restore watch state
+        uses: actions/cache/restore@v4
+        with:
+          path: jobs.db
+          key: urlwatch-state-${{ github.run_id }}
+          restore-keys: urlwatch-state-
+
+      - name: Check watched URLs
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 cli.py urlwatch
+
+      - name: Save watch state
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: jobs.db
+          key: urlwatch-state-${{ github.run_id }}
