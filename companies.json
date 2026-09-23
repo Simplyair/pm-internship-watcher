@@ -4808,57 +4808,27 @@
       "regions": [
         "ca"
       ],
-      "note": "PM plus product-adjacent (ops, analyst, program manager, marketing), Canada only"
-    },
-    {
-      "company": "Restaurant Brands International",
-      "regions": [
-        "ca"
-      ],
       "titles": [
-        "generalist",
-        "undergraduate",
-        "internship program",
-        "summer internship",
-        "product",
+        "product manager",
+        "product management",
         "program manager",
-        "strategy",
-        "rotational"
+        "product owner",
+        "associate product"
       ],
-      "note": "RBI Generalist programme carries no product wording in the title"
-    },
-    {
-      "company": "Manulife",
-      "regions": [
-        "ca"
-      ],
-      "titles": [
-        "product",
-        "operations",
-        "marketing",
-        "program manager",
-        "strategy"
-      ],
-      "note": "user asked for operations and marketing internships too"
+      "note": "at Microsoft 'Program Manager' is the product role"
     },
     {
       "company": "Zynga",
+      "require_internship": false,
       "titles": [
-        "rotational",
+        "rotational product",
+        "product manager",
+        "product management",
         "associate product manager",
         "apm",
-        "university",
-        "new grad",
-        "new graduate",
-        "graduate program",
-        "early career",
-        "product management intern",
-        "product manager intern",
-        "product intern",
-        "emerging talent"
+        "product intern"
       ],
-      "require_internship": false,
-      "note": "rotational FT programme carries no internship wording; expected to open 2026-09-14"
+      "note": "rotational PM programme carries no internship wording"
     }
   ],
   "_canada_comment": "canada:true marks boards observed to carry Canadian postings. `scan --region ca` uses only these, which is what makes the 20-minute Canadian cadence affordable."

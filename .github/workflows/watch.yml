@@ -19,10 +19,10 @@ on:
   # ~290 requested runs (median gap 200 min). So we request aggressively and
   # take whatever it gives -- dropped runs cost nothing, and the throttling is
   # what keeps this inside the budget.
-  # Full sweep of all ~675 boards, once a day. Canada is handled separately
-  # and far more often by canada-watch.yml.
+  # Full sweep of every board, so a PM role is caught wherever it appears.
+  # ~5 min per run; GitHub delivers a fraction of what is requested.
   schedule:
-    - cron: "0 13 * * *"     # 09:00 ET daily
+    - cron: "*/30 * * * *"
   workflow_dispatch:
     inputs:
       digest:

@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from . import store, telegram
 from .config import COMPANIES_PATH
 from .http import FetchError
-from .match import location_region, matches, matches_canada, matches_watchlist
+from .match import location_region, matches, matches_watchlist
 from .models import Job
 from .sources import fetch
 
@@ -86,13 +86,9 @@ def scan(conn, *, workers: int = 20, require_location: bool = True,
                     print(f"  ! {company['name']}: {error}")
                 continue
             store.record_board(conn, source, board, company["name"], True)
-            if region == "ca":
-                hits = [j for j in jobs if matches_canada(j)]
-            else:
-                hits = [j for j in jobs
-                        if matches(j, require_location=require_location)
-                        or matches_canada(j)
-                        or matches_watchlist(j, watchlist)]
+            hits = [j for j in jobs
+                    if matches(j, require_location=require_location)
+                    or matches_watchlist(j, watchlist)]
             seen_by_board[(source, board)] = {j.key for j in hits}
             all_matched.extend(hits)
             if verbose and hits:
